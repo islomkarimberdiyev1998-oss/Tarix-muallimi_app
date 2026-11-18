@@ -240,7 +240,7 @@
 const item = questions5_1[current];
         const comboText = combo >= 2 ? <span class="combo-badge">🔥 x${combo} Kombo</span> : "";
 
-        let optionsHtml = "";
+let optionsHtml = "";
         item.options.forEach((opt, idx) => {
             optionsHtml += <button class="opt-btn" id="opt_${idx}" onclick="checkAnswer(${idx})">${opt}</button>;
         });
