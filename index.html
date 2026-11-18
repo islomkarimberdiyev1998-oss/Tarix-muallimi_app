@@ -118,8 +118,7 @@
             transition: 0.2s;
         }
         .opt-btn:active { transform: scale(0.98); }
-
-.opt-btn.hidden { opacity: 0.25; pointer-events: none; }
+        .opt-btn.hidden { opacity: 0.25; pointer-events: none; }
         .correct { background: #16a34a !important; }
         .wrong { background: #dc2626 !important; }
         .lifelines {
@@ -193,34 +192,34 @@
         clearInterval(timerInterval);
         let gradesHtml = "";
         for (let g = 5; g <= 11; g++) {
-            gradesHtml += <button class="grade-btn" onclick="selectGrade(${g})">📚 ${g}-sinf</button>;
+            gradesHtml += `<button class="grade-btn" onclick="selectGrade(${g})">📚 ${g}-sinf</button>`;
         }
 
-        document.getElementById("app").innerHTML = 
+        document.getElementById("app").innerHTML = `
             <h2>⚔️ Tarix Muallim</h2>
             <div class="subtitle">Xush kelibsiz, <b>${userName}</b>! Sinfni tanlang:</div>
             <div class="grid">${gradesHtml}</div>
-        ;
+        `;
     }
 
     function selectGrade(grade) {
         if (grade === 5) {
-            document.getElementById("app").innerHTML = 
+            document.getElementById("app").innerHTML = `
                 <h2>📘 5-sinf Tarix</h2>
                 <div class="subtitle">Mavzuni tanlang:</div>
                 <button class="topic-btn" onclick="startQuiz()">
                     1-mavzu: Tarix darsiga ilk qadam. Mustaqillik. Vatan. Bilim (3 ta savol)
                 </button>
                 <button class="back-btn" onclick="showHome()">⬅️ Sinflar menyusiga qaytish</button>
-            ;
+            `;
         } else {
-            document.getElementById("app").innerHTML = 
+            document.getElementById("app").innerHTML = `
                 <h2>📚 ${grade}-sinf Tarix</h2>
                 <div class="subtitle" style="margin: 25px 0; color: #fbbf24;">
                     ⏳ ${grade}-sinf mavzulari va testlari tez kunda qoʻshiladi!
                 </div>
                 <button class="back-btn" onclick="showHome()">⬅️ Sinflar menyusiga qaytish</button>
-            ;
+            `;
         }
     }
 
@@ -237,15 +236,15 @@
         answered = false;
         timeLeft = 20;
 
-const item = questions5_1[current];
-        const comboText = combo >= 2 ? <span class="combo-badge">🔥 x${combo} Kombo</span> : "";
+        const item = questions5_1[current];
+        const comboText = combo >= 2 ? `<span class="combo-badge">🔥 x${combo} Kombo</span>` : "";
 
-let optionsHtml = "";
+        let optionsHtml = "";
         item.options.forEach((opt, idx) => {
-            optionsHtml += <button class="opt-btn" id="opt_${idx}" onclick="checkAnswer(${idx})">${opt}</button>;
+            optionsHtml += `<button class="opt-btn" id="opt_${idx}" onclick="checkAnswer(${idx})">${opt}</button>`;
         });
 
-        document.getElementById("app").innerHTML = 
+        document.getElementById("app").innerHTML = `
             <div class="top-bar">
                 <span>Savol: <b>${current + 1}/${questions5_1.length}</b></span>
                 ${comboText}
@@ -261,7 +260,7 @@ let optionsHtml = "";
             </div>
             <div class="question">${item.q}</div>
             <div>${optionsHtml}</div>
-        ;
+        `;
 
         startTimer();
     }
@@ -288,7 +287,7 @@ let optionsHtml = "";
         answered = true;
         combo = 0;
         const correctIdx = questions5_1[current].answer;
-        document.getElementById(opt_${correctIdx}).classList.add("correct");
+        document.getElementById(`opt_${correctIdx}`).classList.add("correct");
         setTimeout(nextStep, 1200);
     }
 
@@ -301,8 +300,8 @@ let optionsHtml = "";
         let wrongIndices = [0, 1, 2, 3].filter(i => i !== correctIdx);
         wrongIndices.sort(() => Math.random() - 0.5);
 
-        document.getElementById(opt_${wrongIndices[0]}).classList.add("hidden");
-        document.getElementById(opt_${wrongIndices[1]}).classList.add("hidden");
+        document.getElementById(`opt_${wrongIndices[0]}`).classList.add("hidden");
+        document.getElementById(`opt_${wrongIndices[1]}`).classList.add("hidden");
     }
 
     function checkAnswer(selected) {
@@ -311,7 +310,7 @@ let optionsHtml = "";
         clearInterval(timerInterval);
 
         const correctIdx = questions5_1[current].answer;
-        const selectedBtn = document.getElementById(opt_${selected});
+        const selectedBtn = document.getElementById(`opt_${selected}`);
 
         if (selected === correctIdx) {
             selectedBtn.classList.add("correct");
@@ -320,7 +319,7 @@ let optionsHtml = "";
             score += bonus;
         } else {
             selectedBtn.classList.add("wrong");
-            document.getElementById(opt_${correctIdx}).classList.add("correct");
+            document.getElementById(`opt_${correctIdx}`).classList.add("correct");
             combo = 0;
         }
 
@@ -338,7 +337,7 @@ let optionsHtml = "";
 
     function showResult() {
         clearInterval(timerInterval);
-        document.getElementById("app").innerHTML = 
+        document.getElementById("app").innerHTML = `
             <div class="result">
                 <h2>🏆 Mavzu yakunlandi!</h2>
                 <p>Barakalla, <b>${userName}</b>!</p>
@@ -347,7 +346,7 @@ let optionsHtml = "";
                 <button class="opt-btn" style="text-align:center; background:#2563eb; margin-top:15px;" onclick="startQuiz()">🔄 Qayta ishlash</button>
                 <button class="back-btn" onclick="showHome()">🏠 Bosh menyuga qaytish</button>
             </div>
-        ;
+        `;
     }
 
     showHome();
