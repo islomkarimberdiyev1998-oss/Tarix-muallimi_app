@@ -1,1 +1,35 @@
-https://islomkarimberdiyev1998-oss.github.io/Tarix-muallimi_app/
+if (selected === correctIndex) {
+            btnElement.classList.add("correct");
+            score += 10;
+        } else {
+            btnElement.classList.add("wrong");
+            allBtns[correctIndex].classList.add("correct");
+        }
+
+        setTimeout(() => {
+            current++;
+            if (current < questions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }, 1000);
+    }
+
+    function showResult() {
+        const userName = tg.initDataUnsafe?.user?.first_name || "Oʻquvchi";
+        document.getElementById("app").innerHTML = 
+            <div class="result">
+                <h2>🏆 Sinov yakunlandi!</h2>
+                <p>Barakalla, <b>${userName}</b>!</p>
+                <p class="gold">🪙 ${score} ball</p>
+                <button class="btn" style="text-align:center; background:#2563eb;" onclick="location.reload()">🔄 Qayta oʻynash</button>
+            </div>
+        ;
+    }
+
+    loadQuestion();
+</script>
+
+</body>
+            </html>
