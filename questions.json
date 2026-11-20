@@ -1,0 +1,103 @@
+{
+  "grades": {
+    "5": { "topics": [
+      { "id": "5-1", "title": "Ibtidoiy odamlar", "questions": [
+        {"q":"Qadimgi odamlar dastlabki mehnat qurollarini asosan nimadan yasagan?","a":["Temirdan","Toshdan","Oltindan","Shishadan"],"c":1,"e":"Dastlabki qurollar tosh, suyak va yog'ochdan yasalgan."},
+        {"q":"Qadimgi odamlar olovdan nima uchun foydalangan?","a":["Isinish va ovqat pishirish uchun","Pul to'lash uchun","Kitob yozish uchun","Kema yasash uchun"],"c":0,"e":"Olov sovuqdan va yirtqich hayvonlardan himoya qilgan."},
+        {"q":"Ibtidoiy odamlarning asosiy mashg'uloti qaysi edi?","a":["Ov qilish va terimchilik","Savdo-sotiq","Sanoat ishlab chiqarish","Kosmik tadqiqotlar"],"c":0},
+        {"q":"Qadimgi odamlar dastlab qayerda yashagan?","a":["Ko'p qavatli uylarda","G'orlarda va chaylalarda","Qasrlarda","Kemalarda"],"c":1}
+      ]},
+      { "id": "5-2", "title": "Qadimgi Misr", "questions": [
+        {"q":"Qadimgi Misr davlati qaysi daryo bo'yida vujudga kelgan?","a":["Nil","Amudaryo","Volga","Dunay"],"c":0,"e":"Nil daryosining toshqinlari yerni unumdor qilgan."},
+        {"q":"Qadimgi Misr hukmdorlari qanday nomlangan?","a":["Imperator","Fir'avn","Xon","Sulton"],"c":1},
+        {"q":"Misr hukmdorlari uchun qurilgan ulkan maqbaralar nima deb ataladi?","a":["Minoralar","Qal'alar","Piramidalar","Ibodatxonalar"],"c":2},
+        {"q":"Qadimgi misrliklarning yozuvi qanday nomlangan?","a":["Ieroglif","Lotin alifbosi","Kirill alifbosi","Run yozuvi"],"c":0}
+      ]}
+    ]},
+    "6": { "topics": [
+      { "id": "6-1", "title": "Buyuk ipak yo'li", "questions": [
+        {"q":"Buyuk ipak yo'li Sharqdagi qaysi mamlakatdan boshlangan?","a":["Xitoy","Misr","Yunoniston","Braziliya"],"c":0},
+        {"q":"Buyuk ipak yo'lining nomi qaysi mahsulot bilan bog'liq?","a":["Paxta","Ipak","Teri","Yog'och"],"c":1},
+        {"q":"Quyidagi shaharlardan qaysi biri Buyuk ipak yo'lida joylashgan?","a":["London","Moskva","Samarqand","Parij"],"c":2},
+        {"q":"Karvonlarda yuk tashishda asosan qaysi hayvondan foydalanilgan?","a":["Ot","Tuya","Fil","Ho'kiz"],"c":1,"e":"Tuya cho'lda uzoq yo'lga chidamli bo'lgan."}
+      ]},
+      { "id": "6-2", "title": "Vatandosh allomalar", "questions": [
+        {"q":"\"Algoritm\" so'zi qaysi olim nomidan kelib chiqqan?","a":["Ibn Sino","Beruniy","Al-Xorazmiy","Navoiy"],"c":2},
+        {"q":"\"Tib qonunlari\" asarining muallifi kim?","a":["Ibn Sino","Al-Xorazmiy","Ulug'bek","Bobur"],"c":0},
+        {"q":"\"Hindiston\" asarining muallifi kim?","a":["Ibn Sino","Beruniy","Al-Farg'oniy","Navoiy"],"c":1},
+        {"q":"\"Bayt ul-hikma\" (Donishmandlik uyi) qaysi shaharda joylashgan edi?","a":["Bag'dod","Samarqand","Xiva","Qohira"],"c":0}
+      ]}
+    ]},
+    "7": { "topics": [
+      { "id": "7-1", "title": "Amir Temur", "questions": [
+        {"q":"Amir Temur qaysi yilda tug'ilgan?","a":["1220","1336","1405","1500"],"c":1},
+        {"q":"Amir Temur davlatining poytaxti qaysi shahar edi?","a":["Buxoro","Toshkent","Samarqand","Xiva"],"c":2},
+        {"q":"Amir Temur qaysi yilda Movarounnahrda hokimiyatni qo'lga oldi?","a":["1220","1370","1405","1500"],"c":1},
+        {"q":"Amir Temurning davlat boshqaruvi haqidagi mashhur asar qaysi?","a":["Boburnoma","Xamsa","Temur tuzuklari","Zij"],"c":2}
+      ]},
+      { "id": "7-2", "title": "Temuriylar davri madaniyati", "questions": [
+        {"q":"Mirzo Ulug'bek qurdirgan rasadxona qaysi shaharda joylashgan?","a":["Samarqand","Buxoro","Xiva","Qo'qon"],"c":0},
+        {"q":"\"Xamsa\" asarining muallifi kim?","a":["Bobur","Alisher Navoiy","Beruniy","Ibn Sino"],"c":1},
+        {"q":"\"Boburnoma\" asarining muallifi kim?","a":["Zahiriddin Muhammad Bobur","Mirzo Ulug'bek","Amir Temur","Al-Xorazmiy"],"c":0},
+        {"q":"Bobur Hindistonda qaysi sulolaga asos solgan?","a":["Temuriylar","Boburiylar","Somoniylar","Shayboniylar"],"c":1,"e":"Bobur 1526-yilda Hindistonda Boburiylar saltanatini barpo etgan."}
+      ]}
+    ]},
+    "8": { "topics": [
+      { "id": "8-1", "title": "Buxoro, Xiva va Qo'qon", "questions": [
+        {"q":"Qo'qon xonligining poytaxti qaysi shahar edi?","a":["Qo'qon","Xiva","Buxoro","Termiz"],"c":0},
+        {"q":"Buxoro amirligining poytaxti qaysi shahar edi?","a":["Toshkent","Samarqand","Buxoro","Qarshi"],"c":2},
+        {"q":"Xiva xonligi Markaziy Osiyoning qaysi hududida joylashgan edi?","a":["Farg'ona vodiysi","Xorazm vohasi","Surxon vohasi","Zarafshon vohasi"],"c":1},
+        {"q":"XIX asrda hozirgi O'zbekiston hududida qaysi davlatlar mavjud edi?","a":["Buxoro amirligi, Xiva va Qo'qon xonliklari","Temuriylar davlati","Somoniylar davlati","Qoraxoniylar davlati"],"c":0}
+      ]},
+      { "id": "8-2", "title": "Rossiya imperiyasi istilosi", "questions": [
+        {"q":"Toshkent Rossiya imperiyasi tomonidan qaysi yilda bosib olingan?","a":["1865","1405","1924","1991"],"c":0},
+        {"q":"Turkiston general-gubernatorligi qaysi yilda tuzilgan?","a":["1865","1867","1917","1924"],"c":1},
+        {"q":"Turkiston general-gubernatorligining markazi qaysi shahar bo'lgan?","a":["Samarqand","Qo'qon","Toshkent","Buxoro"],"c":2},
+        {"q":"Turkiston general-gubernatorligining birinchi general-gubernatori kim edi?","a":["K. P. fon Kaufman","M. Cherniyayev","A. Suvorov","P. Stolipin"],"c":0}
+      ]}
+    ]},
+    "9": { "topics": [
+      { "id": "9-1", "title": "Jadidchilik harakati", "questions": [
+        {"q":"\"Jadid\" so'zi qanday ma'noni bildiradi?","a":["Eski","Yangi","Katta","Qadimgi"],"c":1},
+        {"q":"\"Padarkush\" dramasining muallifi kim?","a":["Abdulla Avloniy","Mahmudxo'ja Behbudiy","Cho'lpon","Fitrat"],"c":1},
+        {"q":"\"Turkiy guliston yohud axloq\" asarining muallifi kim?","a":["Abdulla Avloniy","Mahmudxo'ja Behbudiy","Abdulla Qodiriy","Hamza"],"c":0},
+        {"q":"Jadidlar asosan nimani isloh qilishga intilgan?","a":["Harbiy tizimni","Ta'lim va maktablarni","Transportni","Savdo yo'llarini"],"c":1,"e":"Ular \"usuli jadid\" maktablarini ochib, yangicha ta'lim joriy etgan."}
+      ]},
+      { "id": "9-2", "title": "Muxtoriyat va O'zbekiston SSR", "questions": [
+        {"q":"Turkiston muxtoriyati qaysi shaharda e'lon qilingan?","a":["Toshkent","Qo'qon","Buxoro","Xiva"],"c":1},
+        {"q":"O'zbekiston SSR qaysi yilda tashkil topgan?","a":["1917","1924","1941","1991"],"c":1},
+        {"q":"O'zbekiston SSRning birinchi poytaxti qaysi shahar bo'lgan?","a":["Samarqand","Toshkent","Buxoro","Andijon"],"c":0},
+        {"q":"O'zbekiston SSR poytaxti qaysi yildan Toshkentga ko'chirilgan?","a":["1917","1924","1930","1945"],"c":2}
+      ]}
+    ]},
+    "10": { "topics": [
+      { "id": "10-1", "title": "Ikkinchi jahon urushi", "questions": [
+        {"q":"Ikkinchi jahon urushi qaysi yilda boshlangan?","a":["1914","1939","1941","1945"],"c":1},
+        {"q":"Germaniya SSSRga qaysi yilda hujum qilgan?","a":["1939","1941","1943","1945"],"c":1},
+        {"q":"Ikkinchi jahon urushi qaysi yilda tugagan?","a":["1941","1943","1945","1950"],"c":2},
+        {"q":"O'zbekistonda 9 may qanday kun sifatida nishonlanadi?","a":["Mustaqillik kuni","Xotira va qadrlash kuni","Navro'z","Konstitutsiya kuni"],"c":1}
+      ]},
+      { "id": "10-2", "title": "Paxta yakkahokimligi va Orol", "questions": [
+        {"q":"Sovet davrida O'zbekistonda qaysi ekin yakkahokimligi hukmron bo'lgan?","a":["Paxta","Guruch","Tamaki","Choy"],"c":0},
+        {"q":"Orol dengizining qurishiga asosiy sabablardan biri nima?","a":["Amudaryo va Sirdaryo suvlarining sug'orishga ko'p olinishi","Yog'ingarchilikning ko'payishi","Dengizning muzlashi","Zilzila"],"c":0},
+        {"q":"Amudaryo va Sirdaryo qaysi dengizga quyilgan?","a":["Kaspiy","Orol","Qora","O'rta"],"c":1},
+        {"q":"1991-yilgacha O'zbekiston qaysi davlat tarkibida bo'lgan?","a":["Rossiya imperiyasi","SSSR","Xitoy","Eron"],"c":1}
+      ]}
+    ]},
+    "11": { "topics": [
+      { "id": "11-1", "title": "Mustaqillik yillari", "questions": [
+        {"q":"O'zbekiston mustaqilligi qachon e'lon qilingan?","a":["1 sentyabr 1991","9 may 1945","8 dekabr 1992","1 iyul 1994"],"c":0},
+        {"q":"O'zbekiston Respublikasi Konstitutsiyasi qachon qabul qilingan?","a":["1 sentyabr 1991","8 dekabr 1992","21 mart 1990","1 iyul 1994"],"c":1},
+        {"q":"Milliy valyuta so'm qaysi yili muomalaga kiritilgan?","a":["1991","1992","1994","2000"],"c":2},
+        {"q":"O'zbekiston Birlashgan Millatlar Tashkilotiga qaysi yili a'zo bo'lgan?","a":["1991","1992","1995","2000"],"c":1}
+      ]},
+      { "id": "11-2", "title": "Davlat ramzlari", "questions": [
+        {"q":"O'zbekiston davlat gerbida qaysi qush tasvirlangan?","a":["Burgut","Humo","Qirg'ovul","Laylak"],"c":1},
+        {"q":"Davlat bayrog'ida nechta yulduz tasvirlangan?","a":["8","10","12","15"],"c":2},
+        {"q":"Davlat madhiyasining so'zlari muallifi kim?","a":["Abdulla Oripov","Alisher Navoiy","Cho'lpon","Hamid Olimjon"],"c":0},
+        {"q":"Davlat bayrog'i qaysi yilda qabul qilingan?","a":["1991","1992","1994","2000"],"c":0}
+      ]}
+    ]},
+    "abituriyent": { "topics": [] }
+  }
+}
