@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ö<!DOCTYPE html>
 <html lang="uz">
 <head>
 <meta charset="utf-8">
@@ -69,7 +69,7 @@ function screen(back){
   if(back)app.append(h('button','back','‹ Orqaga',back));
 }
 function toast(t){const e=h('div','toast',t);document.body.append(e);setTimeout(()=>e.remove(),1800)}
-const ready=g=>(DATA.grades[g]?.topics||[]).some(t=>t.questions.length);
+const ready=g=>(DATA.grades[g]?.topics||[]).length>0;
 const LOGO='<svg viewBox="0 0 48 48" width="46" height="46" aria-hidden="true"><path d="M8 44V20Q8 8 24 4Q40 8 40 20V44Z" fill="#16294d" stroke="#e6b445" stroke-width="2"/><path d="M15 44V22Q15 14 24 11Q33 14 33 22V44Z" fill="#34b8a6"/><circle cx="24" cy="26" r="4" fill="#e6b445"/></svg>';
 
 function home(){
