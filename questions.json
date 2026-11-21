@@ -55,4 +55,53 @@
       ]},
       { "id": "8-2", "title": "Rossiya imperiyasi istilosi", "questions": [
         {"q":"Toshkent Rossiya imperiyasi tomonidan qaysi yilda bosib olingan?","a":["1865","1405","1924","1991"],"c":0},
-        {"q":"Turkiston general-gubernatorligi qaysi yilda tuzilgan?","a":["1865","
+        {"q":"Turkiston general-gubernatorligi qaysi yilda tuzilgan?","a":["1865","1867","1917","1924"],"c":1},
+        {"q":"Turkiston general-gubernatorligining markazi qaysi shahar bo'lgan?","a":["Samarqand","Qo'qon","Toshkent","Buxoro"],"c":2},
+        {"q":"Turkiston general-gubernatorligining birinchi general-gubernatori kim edi?","a":["K. P. fon Kaufman","M. Cherniyayev","A. Suvorov","P. Stolipin"],"c":0}
+      ]}
+    ]},
+    "9": { "topics": [
+      { "id": "9-1", "title": "Jadidchilik harakati", "questions": [
+        {"q":"\"Jadid\" so'zi qanday ma'noni bildiradi?","a":["Eski","Yangi","Katta","Qadimgi"],"c":1},
+        {"q":"\"Padarkush\" dramasining muallifi kim?","a":["Abdulla Avloniy","Mahmudxo'ja Behbudiy","Cho'lpon","Fitrat"],"c":1},
+        {"q":"\"Turkiy guliston yohud axloq\" asarining muallifi kim?","a":["Abdulla Avloniy","Mahmudxo'ja Behbudiy","Abdulla Qodiriy","Hamza"],"c":0},
+        {"q":"Jadidlar asosan nimani isloh qilishga intilgan?","a":["Harbiy tizimni","Ta'lim va maktablarni","Transportni","Savdo yo'llarini"],"c":1,"e":"Ular \"usuli jadid\" maktablarini ochib, yangicha ta'lim joriy etgan."}
+      ]},
+      { "id": "9-2", "title": "Muxtoriyat va O'zbekiston SSR", "questions": [
+        {"q":"Turkiston muxtoriyati qaysi shaharda e'lon qilingan?","a":["Toshkent","Qo'qon","Buxoro","Xiva"],"c":1},
+        {"q":"O'zbekiston SSR qaysi yilda tashkil topgan?","a":["1917","1924","1941","1991"],"c":1},
+        {"q":"O'zbekiston SSRning birinchi poytaxti qaysi shahar bo'lgan?","a":["Samarqand","Toshkent","Buxoro","Andijon"],"c":0},
+        {"q":"O'zbekiston SSR poytaxti qaysi yildan Toshkentga ko'chirilgan?","a":["1917","1924","1930","1945"],"c":2}
+      ]}
+    ]},
+    "10": { "topics": [
+      { "id": "10-1", "title": "Ikkinchi jahon urushi", "questions": [
+        {"q":"Ikkinchi jahon urushi qaysi yilda boshlangan?","a":["1914","1939","1941","1945"],"c":1},
+        {"q":"Germaniya SSSRga qaysi yilda hujum qilgan?","a":["1939","1941","1943","1945"],"c":1},
+        {"q":"Ikkinchi jahon urushi qaysi yilda tugagan?","a":["1941","1943","1945","1950"],"c":2},
+        {"q":"O'zbekistonda 9 may qanday kun sifatida nishonlanadi?","a":["Mustaqillik kuni","Xotira va qadrlash kuni","Navro'z","Konstitutsiya kuni"],"c":1}
+      ]},
+      { "id": "10-2", "title": "Paxta yakkahokimligi va Orol", "questions": [
+        {"q":"Sovet davrida O'zbekistonda qaysi ekin yakkahokimligi hukmron bo'lgan?","a":["Paxta","Guruch","Tamaki","Choy"],"c":0},
+        {"q":"Orol dengizining qurishiga asosiy sabablardan biri nima?","a":["Amudaryo va Sirdaryo suvlarining sug'orishga ko'p olinishi","Yog'ingarchilikning ko'payishi","Dengizning muzlashi","Zilzila"],"c":0},
+        {"q":"Amudaryo va Sirdaryo qaysi dengizga quyilgan?","a":["Kaspiy","Orol","Qora","O'rta"],"c":1},
+        {"q":"1991-yilgacha O'zbekiston qaysi davlat tarkibida bo'lgan?","a":["Rossiya imperiyasi","SSSR","Xitoy","Eron"],"c":1}
+      ]}
+    ]},
+    "11": { "topics": [
+      { "id": "11-1", "title": "Mustaqillik yillari", "questions": [
+        {"q":"O'zbekiston mustaqilligi qachon e'lon qilingan?","a":["1 sentyabr 1991","9 may 1945","8 dekabr 1992","1 iyul 1994"],"c":0},
+        {"q":"O'zbekiston Respublikasi Konstitutsiyasi qachon qabul qilingan?","a":["1 sentyabr 1991","8 dekabr 1992","21 mart 1990","1 iyul 1994"],"c":1},
+        {"q":"Milliy valyuta so'm qaysi yili muomalaga kiritilgan?","a":["1991","1992","1994","2000"],"c":2},
+        {"q":"O'zbekiston Birlashgan Millatlar Tashkilotiga qaysi yili a'zo bo'lgan?","a":["1991","1992","1995","2000"],"c":1}
+      ]},
+      { "id": "11-2", "title": "Davlat ramzlari", "questions": [
+        {"q":"O'zbekiston davlat gerbida qaysi qush tasvirlangan?","a":["Burgut","Humo","Qirg'ovul","Laylak"],"c":1},
+        {"q":"Davlat bayrog'ida nechta yulduz tasvirlangan?","a":["8","10","12","15"],"c":2},
+        {"q":"Davlat madhiyasining so'zlari muallifi kim?","a":["Abdulla Oripov","Alisher Navoiy","Cho'lpon","Hamid Olimjon"],"c":0},
+        {"q":"Davlat bayrog'i qaysi yilda qabul qilingan?","a":["1991","1992","1994","2000"],"c":0}
+      ]}
+    ]},
+    "abituriyent": { "topics": [] }
+  }
+        }
