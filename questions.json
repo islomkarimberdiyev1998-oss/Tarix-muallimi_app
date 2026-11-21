@@ -1,22 +1,22 @@
 {
   "grades": {
     "5": { "topics": [
-      { "id": "5m1-2", "title": "1–2-mavzular. Tarix darsiga ilk qadam. Mustaqillik. Vatan. Bilim", "questions": [] },
-      { "id": "5m3-4", "title": "3–4-mavzular. O‘z o‘tmishimizni bilamizmi?", "questions": [] },
-      { "id": "5m5", "title": "5-mavzu. Tarixga xaritalar orqali boqish", "questions": [] },
-      { "id": "5m6-7", "title": "6–7-mavzular. Eng qadimgi odamlar", "questions": [] },
-      { "id": "5m8-9", "title": "8–9-mavzular. Madaniyat", "questions": [] },
-      { "id": "5m10", "title": "10-mavzu. Tarixda ta’lim", "questions": [] },
-      { "id": "5m11-12", "title": "11–12-mavzular. Davlatchilik tarixi", "questions": [] },
-      { "id": "5m13", "title": "13-mavzu. O‘zbek tili tarixi", "questions": [] },
-      { "id": "5m14-16", "title": "14–16-mavzular. Samarqand, Buxoro va Navoiy viloyatlari", "questions": [] },
-      { "id": "5m17-18", "title": "17–18-mavzular. Davlat bayrog‘i", "questions": [] },
-      { "id": "5m19-20", "title": "19–20-mavzular. Qashqadaryo va Surxondaryo viloyatlari", "questions": [] },
-      { "id": "5m21", "title": "21-mavzu. Ushalmagan orzu: Turkiston muxtoriyati", "questions": [] },
-      { "id": "5m22-23", "title": "22–23-mavzular. Xorazm viloyati va Qoraqalpog‘iston", "questions": [] },
-      { "id": "5m24", "title": "24-mavzu. Bosh qonunimiz", "questions": [] },
-      { "id": "5m25", "title": "25-mavzu. Vatan madhi", "questions": [] },
-      { "id": "5m26-27", "title": "26–27-mavzular. Yil, oy va kunlarni sanash", "questions": [] }
+      { "id": "5m1-2", "title": "1-2-mavzu", "questions": [] },
+      { "id": "5m3-4", "title": "3-4-mavzu", "questions": [] },
+      { "id": "5m5", "title": "5-mavzu", "questions": [] },
+      { "id": "5m6-7", "title": "6-7-mavzu", "questions": [] },
+      { "id": "5m8-9", "title": "8-9-mavzu", "questions": [] },
+      { "id": "5m10", "title": "10-mavzu", "questions": [] },
+      { "id": "5m11-12", "title": "11-12-mavzu", "questions": [] },
+      { "id": "5m13", "title": "13-mavzu", "questions": [] },
+      { "id": "5m14-16", "title": "14-16-mavzu", "questions": [] },
+      { "id": "5m17-18", "title": "17-18-mavzu", "questions": [] },
+      { "id": "5m19-20", "title": "19-20-mavzu", "questions": [] },
+      { "id": "5m21", "title": "21-mavzu", "questions": [] },
+      { "id": "5m22-23", "title": "22-23-mavzu", "questions": [] },
+      { "id": "5m24", "title": "24-mavzu", "questions": [] },
+      { "id": "5m25", "title": "25-mavzu", "questions": [] },
+      { "id": "5m26-27", "title": "26-27-mavzu", "questions": [] }
     ]},
     "6": { "topics": [
       { "id": "6-1", "title": "Buyuk ipak yo'li", "questions": [
@@ -79,4 +79,29 @@
         {"q":"Ikkinchi jahon urushi qaysi yilda boshlangan?","a":["1914","1939","1941","1945"],"c":1},
         {"q":"Germaniya SSSRga qaysi yilda hujum qilgan?","a":["1939","1941","1943","1945"],"c":1},
         {"q":"Ikkinchi jahon urushi qaysi yilda tugagan?","a":["1941","1943","1945","1950"],"c":2},
-        {"q":"O'zbekistonda 9 may qanday kun sifatida nishonlanadi?","a":["Mustaqillik kuni","Xotira va qadrlash kuni","Navro'z
+        {"q":"O'zbekistonda 9 may qanday kun sifatida nishonlanadi?","a":["Mustaqillik kuni","Xotira va qadrlash kuni","Navro'z","Konstitutsiya kuni"],"c":1}
+      ]},
+      { "id": "10-2", "title": "Paxta yakkahokimligi va Orol", "questions": [
+        {"q":"Sovet davrida O'zbekistonda qaysi ekin yakkahokimligi hukmron bo'lgan?","a":["Paxta","Guruch","Tamaki","Choy"],"c":0},
+        {"q":"Orol dengizining qurishiga asosiy sabablardan biri nima?","a":["Amudaryo va Sirdaryo suvlarining sug'orishga ko'p olinishi","Yog'ingarchilikning ko'payishi","Dengizning muzlashi","Zilzila"],"c":0},
+        {"q":"Amudaryo va Sirdaryo qaysi dengizga quyilgan?","a":["Kaspiy","Orol","Qora","O'rta"],"c":1},
+        {"q":"1991-yilgacha O'zbekiston qaysi davlat tarkibida bo'lgan?","a":["Rossiya imperiyasi","SSSR","Xitoy","Eron"],"c":1}
+      ]}
+    ]},
+    "11": { "topics": [
+      { "id": "11-1", "title": "Mustaqillik yillari", "questions": [
+        {"q":"O'zbekiston mustaqilligi qachon e'lon qilingan?","a":["1 sentyabr 1991","9 may 1945","8 dekabr 1992","1 iyul 1994"],"c":0},
+        {"q":"O'zbekiston Respublikasi Konstitutsiyasi qachon qabul qilingan?","a":["1 sentyabr 1991","8 dekabr 1992","21 mart 1990","1 iyul 1994"],"c":1},
+        {"q":"Milliy valyuta so'm qaysi yili muomalaga kiritilgan?","a":["1991","1992","1994","2000"],"c":2},
+        {"q":"O'zbekiston Birlashgan Millatlar Tashkilotiga qaysi yili a'zo bo'lgan?","a":["1991","1992","1995","2000"],"c":1}
+      ]},
+      { "id": "11-2", "title": "Davlat ramzlari", "questions": [
+        {"q":"O'zbekiston davlat gerbida qaysi qush tasvirlangan?","a":["Burgut","Humo","Qirg'ovul","Laylak"],"c":1},
+        {"q":"Davlat bayrog'ida nechta yulduz tasvirlangan?","a":["8","10","12","15"],"c":2},
+        {"q":"Davlat madhiyasining so'zlari muallifi kim?","a":["Abdulla Oripov","Alisher Navoiy","Cho'lpon","Hamid Olimjon"],"c":0},
+        {"q":"Davlat bayrog'i qaysi yilda qabul qilingan?","a":["1991","1992","1994","2000"],"c":0}
+      ]}
+    ]},
+    "abituriyent": { "topics": [] }
+  }
+}
