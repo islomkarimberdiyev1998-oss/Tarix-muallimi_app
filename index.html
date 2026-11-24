@@ -126,41 +126,60 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .msg.new{border-left-color:var(--gold)}
 .msg .mh{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}
 .msg .mt{white-space:pre-line}
-.ex-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.ex-back{width:42px;height:42px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-size:22px;line-height:1;flex:none}
-.ex-tm{display:flex;align-items:center;gap:6px;margin:0 auto;font-weight:700;color:var(--mute)}
-.ex-tm div{border:2px solid var(--tq);border-radius:10px;padding:3px 8px;text-align:center;min-width:56px}
-.ex-tm b{display:block;font:700 22px/1.1 Georgia,serif;color:var(--tq)}
-.ex-tm small{display:block;font-size:10px;color:var(--mute);letter-spacing:.5px}
-.ex-tm.low div{border-color:var(--bad)}.ex-tm.low b{color:var(--bad)}
-.ex-fin{flex:none;background:var(--tq);color:var(--onacc);font-weight:700;border-radius:12px;padding:10px 14px}
-.ex-strip{display:flex;gap:8px;overflow-x:auto;padding:3px 16px 10px;margin:0 -16px 10px;scrollbar-width:none}
+:root{--exbg:#0b1533;--expn:#101d44;--exln:#26386e;--exbl:#5b7cf5;--exbl2:#2f8bf0;--exgr:#22b05a;--exink:#eef2ff;--exmu:#8e9cc6;--exsel:#1b2d66}
+:root[data-theme=light]{--exbg:#eef2fb;--expn:#ffffff;--exln:#d3dbef;--exink:#14213d;--exmu:#5b6985;--exsel:#e3eaff}
+body.exam{background:var(--exbg);color:var(--exink)}
+body.exam #app{max-width:560px}
+.ex-top{display:flex;align-items:center;gap:10px;margin:0 -16px;padding:4px 16px 12px;border-bottom:1px solid var(--exln)}
+.ex-back{flex:none;width:46px;height:46px;border-radius:12px;background:var(--expn);border:1px solid var(--exln);color:var(--exink);display:grid;place-items:center}
+.ex-back svg,.ex-ib svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ex-tm{display:flex;align-items:center;gap:8px;margin:0 auto;font:700 22px system-ui;color:var(--exmu)}
+.ex-tm div{border:2px solid var(--exgr);border-radius:10px;padding:2px 10px 4px;text-align:center;min-width:62px;background:color-mix(in srgb,var(--exgr) 8%,transparent)}
+.ex-tm b{display:block;font:800 24px/1.15 system-ui;color:var(--exgr);font-variant-numeric:tabular-nums}
+.ex-tm small{display:block;font-size:10px;color:var(--exmu);letter-spacing:.6px}
+.ex-tm.low div{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,transparent)}.ex-tm.low b{color:var(--bad)}
+.ex-fin{flex:none;background:var(--exgr);color:#fff;font-weight:700;border-radius:12px;padding:12px 16px}
+.ex-pg{height:4px;background:var(--exln);border-radius:2px;margin:10px 0 0;overflow:hidden}
+.ex-pg i{display:block;height:100%;background:var(--exgr);border-radius:2px;min-width:6px}
+.ex-strip{display:flex;gap:10px;overflow-x:auto;padding:12px 16px;margin:0 -16px 14px;border-bottom:1px solid var(--exln);scrollbar-width:none}
 .ex-strip::-webkit-scrollbar{display:none}
-.qn{flex:none;width:40px;height:40px;border-radius:10px;background:var(--panel);border:1px solid var(--line);font-weight:700}
-.qn.done{background:color-mix(in srgb,var(--tq) 30%,var(--panel));border-color:var(--tq)}
-.qn.cur{outline:2px solid var(--gold);outline-offset:1px}
-.ex-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
-.ex-hd{display:flex;align-items:center;gap:8px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--line)}
-.ex-hd h3{font:700 19px Georgia,serif;margin-right:auto}
-.ex-cat{font-size:12px;font-weight:700;color:var(--tq);background:color-mix(in srgb,var(--tq) 18%,transparent);border-radius:20px;padding:4px 10px;white-space:nowrap}
-.ex-gb{flex:none;width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:none;display:grid;place-items:center}
-.ex-gb svg{width:18px;height:18px;fill:currentColor}
-.ex-q{white-space:pre-line;line-height:1.5;margin-bottom:14px}
-.ex-img{display:block;width:100%;max-width:420px;margin:0 auto 14px;background:#fff;border-radius:10px;padding:4px}
-.eo{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:1.5px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
-.eo i{flex:none;width:20px;height:20px;border-radius:50%;border:2px solid var(--mute);margin-top:1px}
-.eo.sel{border-color:var(--tq);background:var(--okbg)}.eo.sel i{border:6px solid var(--tq)}
-.ex-nav{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--panel);border-top:1px solid var(--line);z-index:100}
-.ex-nav button{flex:1;border-radius:12px;padding:13px;font-weight:700;background:var(--tq);color:var(--onacc)}
-.ex-nav button.alt{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
-.ex-nav button:disabled{opacity:.4}
-.ex-nav span{min-width:56px;text-align:center;font-weight:700}
+.qn{flex:none;width:44px;height:44px;border-radius:11px;background:var(--exbl);color:#fff;font-weight:700;border:2px solid transparent}
+.qn.done{background:var(--exgr)}
+.qn.cur{border-color:#f5b82e;box-shadow:0 0 0 1px #f5b82e}
+.ex-card{background:var(--expn);border:1px solid var(--exln);border-radius:18px;padding:18px 16px}
+.ex-hd{display:flex;align-items:center;gap:8px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--exln)}
+.ex-hd h3{font:800 20px system-ui;margin-right:auto}
+.ex-cat{font-size:13px;font-weight:600;color:var(--exbl);background:#e8edff;border-radius:20px;padding:6px 12px;white-space:nowrap}
+.ex-ib{flex:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--exln);background:none;color:var(--exink);display:grid;place-items:center}
+.ex-ib.g svg{fill:currentColor;stroke:none;width:20px;height:20px}
+.ex-q{white-space:pre-line;font-size:16.5px;line-height:1.5;margin-bottom:16px}
+.ex-img{display:block;width:100%;max-width:420px;margin:0 auto 16px;background:#fff;border-radius:10px;padding:4px}
+.eo{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:none;color:var(--exink);border:1.5px solid var(--exln);border-radius:12px;padding:15px 16px;margin-bottom:12px;font-size:16.5px}
+.eo i{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--exmu)}
+.eo b{margin-right:2px}
+.eo.sel{border-color:var(--exbl);background:var(--exsel)}.eo.sel i{border:7px solid var(--exbl)}
+.ex-nav{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--expn);border-top:1px solid var(--exln);z-index:100}
+.ex-nav button{flex:1;border-radius:12px;padding:15px;font-weight:700;font-size:16px;background:linear-gradient(90deg,var(--exbl2),#3a9bf7);color:#fff}
+.ex-nav button.alt{background:#1d4fbf;color:#fff}
+.ex-nav button:disabled{opacity:.45}
+.ex-nav span{min-width:60px;text-align:center;font-weight:700;font-size:18px;color:var(--exmu)}
 .sheet.mid{align-items:center}
-.ex-list{width:100%;max-width:520px;max-height:80vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
-.ex-list .mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-.ex-list h4{margin:14px 0 8px;color:var(--mute);font-weight:600}
-.glr{display:flex;flex-wrap:wrap;gap:8px}
-.ex-x{background:none;font-size:22px;color:var(--mute)}
+.ex-list,.ex-cmp{width:100%;max-width:520px;max-height:84vh;overflow:auto;background:var(--expn);color:var(--exink);border:1px solid var(--exln);border-radius:18px;padding:20px}
+.ex-list .mh,.ex-cmp .mh{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}
+.ex-list h2,.ex-cmp h2{font:800 22px system-ui;margin:0}
+.ex-list h4{margin:18px 0 10px;color:var(--exmu);font-weight:600}
+.glr{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:8px}
+.glr .qn{width:auto;height:40px}
+.ex-x{background:none;font-size:24px;color:var(--exmu);line-height:1}
+.ex-cmp h2{display:flex;align-items:center;gap:10px}
+.ex-cmp h2 svg{width:28px;height:28px;fill:none;stroke:var(--bad);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ex-cmp label{display:block;color:var(--exmu);font-weight:600;margin:16px 0 8px}
+.ex-cmp select,.ex-cmp textarea{width:100%;font:inherit;color:var(--exink);background:var(--exbg);border:1px solid var(--exln);border-radius:12px;padding:12px 14px}
+.ex-cmp textarea{min-height:110px;resize:vertical}
+.ex-cmp .cnt{text-align:right;font-size:13px;font-weight:600;color:var(--bad);margin-top:6px}
+.ex-cmp .cnt.ok{color:var(--exgr)}
+.ex-cmp .send{display:block;width:100%;margin-top:18px;border-radius:12px;padding:14px;font-weight:700;background:#c0392b;color:#fff}
+.ex-cmp .send:disabled{opacity:.5}
 .wrong .ex-q{font-size:14px;margin:6px 0 8px}
 .wrong .no{color:var(--bad)}
 </style>
@@ -209,7 +228,7 @@ function setBack(fn){
 }
 function setTab(n){document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===n))}
 function screen(back,tab){
-  clearInterval(timer);app.innerHTML='';document.querySelectorAll('.sheet').forEach(e=>e.remove());setBack(back);
+  clearInterval(timer);app.innerHTML='';document.querySelectorAll('.sheet').forEach(e=>e.remove());document.body.classList.remove('exam');setBack(back);
   tabbar.hidden=false;setTab(tab||'home');window.scrollTo(0,0);
   if(back)app.append(h('button','back','‹ Orqaga',back));
 }
@@ -279,11 +298,17 @@ function openRef(){
   const rf=refCard(),x=h('button','btn alt','Yopish',()=>sh.remove());
   rf.append(x);sh.append(rf);document.body.append(sh);
 }
-// ===== Attestatsiya: imtihon rejimi =====
+// ===== Attestatsiya / Milliy sertifikat: imtihon rejimi =====
 let EX=null;
 const EXL='ABCD';
+const EXI={
+back:'<svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>',
+grid:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>',
+warn:'<svg viewBox="0 0 24 24"><path d="M12 3L2 20h20z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg>',
+msg:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 18l-3 3v-3"/><path d="M12 8v4"/><path d="M12 15h.01"/></svg>'};
 function exLeft(){return Math.max(0,EX.end-Date.now())}
 function exTime(){
+  if(!EX)return;
   const ms=exLeft(),m=Math.ceil(ms/6e4);
   EX.hEl.textContent=String(Math.floor(m/60)).padStart(2,'0');EX.mEl.textContent=String(m%60).padStart(2,'0');
   EX.tmEl.classList.toggle('low',ms<5*6e4);
@@ -293,23 +318,25 @@ function examStart(k,t){
   EX={k,t,qs:t.questions,i:0,ans:{},start:Date.now(),end:Date.now()+(t.min||120)*6e4};
   exQ();
 }
-function exExit(){if(confirm('Testdan chiqasizmi? Natija saqlanmaydi.')){EX=null;topicsScreen('attestatsiya',null)}}
+function exClose(){document.body.classList.remove('exam');document.querySelectorAll('.sheet').forEach(e=>e.remove())}
+function exExit(){if(confirm('Testdan chiqasizmi? Natija saqlanmaydi.')){const k=EX.k;EX=null;exClose();topicsScreen(k,null)}}
 function exGo(i){EX.i=i;exQ()}
 function exQ(){
-  screen(null);setBack(exExit);tabbar.hidden=true;
-  const n=EX.qs.length,q=EX.qs[EX.i];
-  const top=h('div','ex-top'),bk=h('button','ex-back','‹',exExit);bk.setAttribute('aria-label','Chiqish');
+  screen(null);setBack(exExit);tabbar.hidden=true;document.body.classList.add('exam');
+  const n=EX.qs.length,q=EX.qs[EX.i],done=Object.keys(EX.ans).length;
+  const top=h('div','ex-top'),bk=h('button','ex-back',null,exExit);bk.innerHTML=EXI.back;bk.setAttribute('aria-label','Chiqish');
   const tm=h('div','ex-tm'),hb=h('div'),mb=h('div');
   EX.hEl=h('b');EX.mEl=h('b');hb.append(EX.hEl,h('small',null,'SOAT'));mb.append(EX.mEl,h('small',null,'DAQIQA'));
   tm.append(hb,':',mb);EX.tmEl=tm;
   top.append(bk,tm,h('button','ex-fin','Yakunlash',exAskFinish));
-  const bar=h('div','bar'),bi=h('i');bi.style.width=(Object.keys(EX.ans).length/n*100)+'%';bar.append(bi);bar.style.marginBottom='12px';
+  const pg=h('div','ex-pg'),pi=h('i');pi.style.width=(done/n*100)+'%';pg.append(pi);
+  const head=h('div');head.append(top,pg);
   const st=h('div','ex-strip');let cur;
   EX.qs.forEach((x,j)=>{const b=h('button','qn'+(EX.ans[j]!=null?' done':'')+(j===EX.i?' cur':''),String(j+1),()=>exGo(j));if(j===EX.i)cur=b;st.append(b)});
   const c=h('div','ex-card'),hd=h('div','ex-hd');
-  const gb=h('button','ex-gb',null,exList);gb.innerHTML='<svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>';
-  gb.setAttribute('aria-label','Savollar ro‘yxati');
-  hd.append(h('h3',null,`Savol № ${EX.i+1}`),h('span','ex-cat',q.cat||'Tarix'),gb);
+  const gb=h('button','ex-ib g',null,exList);gb.innerHTML=EXI.grid;gb.setAttribute('aria-label','Savollar ro‘yxati');
+  const wb=h('button','ex-ib',null,exComplain);wb.innerHTML=EXI.warn;wb.setAttribute('aria-label','Shikoyat yuborish');
+  hd.append(h('h3',null,`Savol № ${EX.i+1}`),h('span','ex-cat',q.cat||'Tarix'),gb,wb);
   c.append(hd);
   if(q.img){
     const k=q.q.indexOf('\n'),im=document.createElement('img');im.className='ex-img';im.alt='Eyler–Venn diagrammasi';im.src=q.img;
@@ -317,26 +344,44 @@ function exQ(){
   }else c.append(h('div','ex-q',q.q));
   q.a.forEach((o,j)=>{
     const b=h('button','eo'+(EX.ans[EX.i]===j?' sel':''),null,()=>{EX.ans[EX.i]=j;if(tg&&tg.HapticFeedback)tg.HapticFeedback.selectionChanged();exQ()});
-    const t=h('span');t.append(h('b',null,EXL[j]+') '),o);b.append(h('i'),t);c.append(b);
+    const t=h('span');t.append(h('b',null,EXL[j]+')'),' '+o);b.append(h('i'),t);c.append(b);
   });
   const nav=h('div','ex-nav'),last=EX.i===n-1;
   const pv=h('button','alt','Oldingi',()=>exGo(EX.i-1));pv.disabled=EX.i===0;
   nav.append(pv,h('span',null,`${EX.i+1} / ${n}`),h('button',null,last?'Yakunlash':'Keyingi',()=>last?exAskFinish():exGo(EX.i+1)));
-  app.append(top,bar,st,c,nav);
+  app.append(head,st,c,nav);
   exTime();timer=setInterval(exTime,1000);
-  requestAnimationFrame(()=>{st.scrollLeft=cur.offsetLeft-st.clientWidth/2+20});
+  requestAnimationFrame(()=>{st.scrollLeft=cur.offsetLeft-st.clientWidth/2+22});
 }
+function exSheet(){const sh=h('div','sheet mid');sh.onclick=e=>{if(e.target===sh)sh.remove()};document.body.append(sh);return sh}
 function exList(){
-  const sh=h('div','sheet mid');sh.onclick=e=>{if(e.target===sh)sh.remove()};
-  const bx=h('div','ex-list'),hd=h('div','mh');
+  const sh=exSheet(),bx=h('div','ex-list'),hd=h('div','mh');
   hd.append(h('h2',null,'Savollar ro‘yxati'),h('button','ex-x','✕',()=>sh.remove()));
-  bx.append(hd,h('div','mute sm','Istalgan savolga o‘tish uchun raqamni tanlang'));
+  bx.append(hd,h('div',null,'Istalgan savolga o‘tish uchun raqamni tanlang'));bx.lastChild.style.color='var(--exmu)';
   let cat=null,row;
   EX.qs.forEach((q,j)=>{
     if(q.cat!==cat){cat=q.cat;row=h('div','glr');bx.append(h('h4',null,cat),row)}
     row.append(h('button','qn'+(EX.ans[j]!=null?' done':'')+(j===EX.i?' cur':''),String(j+1),()=>{sh.remove();exGo(j)}));
   });
-  sh.append(bx);document.body.append(sh);
+  sh.append(bx);
+}
+// Shikoyat: matn nusxalanadi va bot chati ochiladi (BOT_LINK)
+function exComplain(){
+  const sh=exSheet(),bx=h('div','ex-cmp'),hd=h('div','mh'),t=h('h2');
+  t.innerHTML=EXI.msg;t.append('Shikoyat yuborish');
+  hd.append(t,h('button','ex-x','✕',()=>sh.remove()));
+  const sel=document.createElement('select');
+  ['To‘g‘ri javob noto‘g‘ri belgilangan','Savol matnida xatolik bor','Variantlarda xatolik bor','Rasm ko‘rinmayapti','Boshqa'].forEach(o=>{const op=document.createElement('option');op.textContent=o;sel.append(op)});
+  const ta=document.createElement('textarea');ta.placeholder='Qaysi variant to‘g‘ri bo‘lishi kerakligi va nima uchunligini batafsil asoslang...';
+  const cnt=h('div','cnt','0 / 30 belgi minimum'),send=h('button','send','Tasdiqlash va yuborish');send.disabled=true;
+  ta.oninput=()=>{const n=ta.value.trim().length;cnt.textContent=`${n} / 30 belgi minimum`;cnt.classList.toggle('ok',n>=30);send.disabled=n<30};
+  send.onclick=()=>{
+    const no=EX.i+1,txt=`Shikoyat: ${EX.t.title}, ${no}-savol\nTuri: ${sel.value}\n${ta.value.trim()}`;
+    const go=()=>{sh.remove();if(tg&&tg.openTelegramLink)tg.openTelegramLink(BOT_LINK);else window.open(BOT_LINK,'_blank')};
+    try{navigator.clipboard.writeText(txt).then(()=>{toast('Shikoyat matni nusxalandi — botga yuboring');setTimeout(go,900)},go)}catch(e){go()}
+  };
+  const l1=h('label',null,'Kamchilik turi:'),l2=h('label',null,'Kamchilikni batafsil asoslab yozing (kamida 30 belgi):');
+  bx.append(hd,l1,sel,l2,ta,cnt,send);sh.append(bx);
 }
 function exAskFinish(){
   const u=EX.qs.length-Object.keys(EX.ans).length;
@@ -352,7 +397,7 @@ function exFinish(timeout){
   const used=Math.round((Math.min(Date.now(),EX.end)-EX.start)/6e4);
   const pts=Math.round(ok/n*100),prev=+L('tm_'+t.id)||0;
   if(pts>prev)L('tm_'+t.id,pts);
-  EX=null;
+  EX=null;exClose();
   screen(()=>topicsScreen(k,null));
   if(timeout){const nt=h('div','note');nt.append(h('b',null,'Vaqt tugadi. Test avtomatik yakunlandi.'));app.append(nt)}
   const sc=h('div','score');
