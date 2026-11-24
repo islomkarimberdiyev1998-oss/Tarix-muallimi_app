@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2d5c"/><stop offset="1" stop-color="#0d0e24"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#g)"/>
+
+<g fill="#fff"><circle cx="40" cy="50" r="2"/><circle cx="90" cy="110" r="2.5"/><circle cx="250" cy="60" r="2"/><circle cx="230" cy="150" r="1.8"/><circle cx="60" cy="190" r="2"/><circle cx="270" cy="230" r="2.2"/><circle cx="130" cy="40" r="1.6"/></g>
+<circle cx="230" cy="290" r="90" fill="#2f6fb3"/><path d="M160 260 Q200 240 230 270 T300 260" fill="#3d9a5b"/>
+<g transform="translate(120 180) rotate(35)">
+<path d="M0 -90 Q22 -60 22 0 V40 H-22 V0 Q-22 -60 0 -90Z" fill="#e8e8f0" stroke="#7a7a99" stroke-width="3"/>
+<circle cy="-30" r="10" fill="#5fa8e8" stroke="#7a7a99" stroke-width="3"/>
+<path d="M-22 10 L-42 50 H-22Z M22 10 L42 50 H22Z" fill="#c0392b"/>
+<path d="M-14 40 Q0 90 14 40Z" fill="#ffb347"/><path d="M-7 40 Q0 70 7 40Z" fill="#fff1b8"/></g>
+<rect x="0" y="330" width="300" height="70" fill="#000" opacity=".28"/>
+<text x="150" y="374" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#fff">10 · Jahon</text>
+</svg>

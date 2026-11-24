@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d78b"/><stop offset="1" stop-color="#d98e3a"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#g)"/>
+
+<circle cx="150" cy="120" r="60" fill="#fff3c4" opacity=".7"/>
+<path d="M40 250 Q95 220 148 240 L148 320 Q95 300 40 325Z" fill="#fffaf0" stroke="#7a4a12" stroke-width="5"/>
+<path d="M260 250 Q205 220 152 240 L152 320 Q205 300 260 325Z" fill="#fff3dc" stroke="#7a4a12" stroke-width="5"/>
+<g stroke="#b07a35" stroke-width="3"><path d="M60 262 Q100 245 135 258"/><path d="M60 280 Q100 263 135 276"/><path d="M165 258 Q200 245 240 262"/><path d="M165 276 Q200 263 240 280"/></g>
+<g transform="translate(150 130)"><path d="M-28 -50 H28 M-28 50 H28" stroke="#7a4a12" stroke-width="8" stroke-linecap="round"/>
+<path d="M-22 -46 Q-22 -8 0 0 Q-22 8 -22 46 H22 Q22 8 0 0 Q22 -8 22 -46Z" fill="#fff8e6" stroke="#7a4a12" stroke-width="5"/>
+<path d="M-12 40 Q0 18 12 40Z M-10 -38 H10 L0 -22Z" fill="#d98e3a"/></g>
+<rect x="0" y="330" width="300" height="70" fill="#000" opacity=".28"/>
+<text x="150" y="374" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#fff">5-sinf</text>
+</svg>
