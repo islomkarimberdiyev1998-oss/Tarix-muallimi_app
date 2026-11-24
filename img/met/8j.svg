@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd3f4"/><stop offset="1" stop-color="#2c6e9b"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#g)"/>
+
+<circle cx="70" cy="80" r="28" fill="#fff6c9"/>
+<path d="M0 285 Q40 270 80 285 T160 285 T240 285 T320 285 V330 H0Z" fill="#1d5a85"/>
+<path d="M70 250 H235 L210 285 H95Z" fill="#7a4a24" stroke="#4a2b12" stroke-width="3"/>
+<path d="M150 250 V90 M110 250 V130 M195 250 V140" stroke="#4a2b12" stroke-width="5"/>
+<path d="M155 100 Q195 140 155 180Z M155 190 Q192 215 155 242Z" fill="#fffaf0" stroke="#bfb39b" stroke-width="2"/>
+<path d="M114 140 Q145 170 114 200Z M114 208 Q140 225 114 245Z" fill="#fffaf0" stroke="#bfb39b" stroke-width="2"/>
+<path d="M199 150 Q228 180 199 210Z" fill="#fffaf0" stroke="#bfb39b" stroke-width="2"/>
+<path d="M150 90 l22 6 l-22 6Z" fill="#c0392b"/>
+<path d="M0 300 Q40 288 80 300 T160 300 T240 300 T320 300" fill="none" stroke="#a9dcf5" stroke-width="3"/>
+<rect x="0" y="330" width="300" height="70" fill="#000" opacity=".28"/>
+<text x="150" y="374" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#fff">8 · Jahon</text>
+</svg>

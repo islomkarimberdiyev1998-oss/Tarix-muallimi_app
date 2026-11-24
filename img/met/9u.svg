@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b7e4c7"/><stop offset="1" stop-color="#2d6a4f"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#g)"/>
+
+<path d="M0 300 H300 V330 H0Z" fill="#6b4a2b"/>
+<rect x="50" y="250" width="200" height="50" fill="#8b5e34" stroke="#5a3a1c" stroke-width="3"/>
+<g stroke="#5a3a1c" stroke-width="3"><rect x="70" y="200" width="150" height="26" fill="#c0392b"/><rect x="80" y="226" width="150" height="24" fill="#1f6f8b"/><rect x="65" y="176" width="140" height="24" fill="#e6b445"/></g>
+<path d="M75 188 H195" stroke="#fff3c4" stroke-width="3"/>
+<rect x="225" y="215" width="30" height="35" rx="6" fill="#263238"/>
+<path d="M240 215 L205 90" stroke="#5a3a1c" stroke-width="4"/><path d="M205 90 Q190 120 222 150 Q228 120 205 90Z" fill="#fffaf0" stroke="#5a3a1c" stroke-width="2"/>
+<circle cx="90" cy="95" r="34" fill="#fffaf0" opacity=".6"/><path d="M75 95 h30 M90 80 v30" stroke="#2d6a4f" stroke-width="4"/>
+<rect x="0" y="330" width="300" height="70" fill="#000" opacity=".28"/>
+<text x="150" y="374" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#fff">9 · O‘zbekiston</text>
+</svg>
