@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6c453"/><stop offset="1" stop-color="#c2410c"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#g)"/>
+<g fill="#fff" opacity=".12"><circle cx="40" cy="60" r="30"/><circle cx="270" cy="340" r="50"/><circle cx="260" cy="40" r="14"/></g>
+
+<path d="M60 330 V220 H90 V240 H110 V220 H140 V240 H160 V220 H190 V240 H210 V220 H240 V330Z" fill="#fde7b0" stroke="#7c2d12" stroke-width="5"/>
+<path d="M130 330 V285 Q150 262 170 285 V330Z" fill="#7c2d12"/>
+<g fill="#7c2d12"><rect x="85" y="260" width="18" height="24" rx="3"/><rect x="197" y="260" width="18" height="24" rx="3"/></g>
+<path d="M85 180 L100 105 L127 145 L150 85 L173 145 L200 105 L215 180Z" fill="#facc15" stroke="#7c2d12" stroke-width="5" stroke-linejoin="round"/>
+<rect x="85" y="178" width="130" height="20" fill="#facc15" stroke="#7c2d12" stroke-width="5"/>
+<g fill="#dc2626"><circle cx="150" cy="188" r="6"/><circle cx="112" cy="188" r="5"/><circle cx="188" cy="188" r="5"/></g>
+<g fill="#2563eb"><circle cx="100" cy="105" r="7"/><circle cx="150" cy="85" r="8"/><circle cx="200" cy="105" r="7"/></g>
+</svg>
