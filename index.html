@@ -129,7 +129,8 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 :root{--exbg:#0b1533;--expn:#101d44;--exln:#26386e;--exbl:#5b7cf5;--exbl2:#2f8bf0;--exgr:#22b05a;--exink:#eef2ff;--exmu:#8e9cc6;--exsel:#1b2d66}
 :root[data-theme=light]{--exbg:#eef2fb;--expn:#ffffff;--exln:#d3dbef;--exink:#14213d;--exmu:#5b6985;--exsel:#e3eaff}
 body.exam{background:var(--exbg);color:var(--exink)}
-body.exam #app{max-width:560px}
+body.exam #app{max-width:760px}
+body.exam{--exfs:14.5px}
 .ex-top{display:flex;align-items:center;gap:10px;margin:0 -16px;padding:4px 16px 12px;border-bottom:1px solid var(--exln)}
 .ex-back{flex:none;width:46px;height:46px;border-radius:12px;background:var(--expn);border:1px solid var(--exln);color:var(--exink);display:grid;place-items:center}
 .ex-back svg,.ex-ib svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -146,18 +147,23 @@ body.exam #app{max-width:560px}
 .qn{flex:none;width:44px;height:44px;border-radius:11px;background:var(--exbl);color:#fff;font-weight:700;border:2px solid transparent}
 .qn.done{background:var(--exgr)}
 .qn.cur{border-color:#f5b82e;box-shadow:0 0 0 1px #f5b82e}
-.ex-card{background:var(--expn);border:1px solid var(--exln);border-radius:18px;padding:18px 16px}
-.ex-hd{display:flex;align-items:center;gap:8px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--exln)}
-.ex-hd h3{font:800 20px system-ui;margin-right:auto}
+.ex-card{background:var(--expn);border:1px solid var(--exln);border-radius:18px;padding:14px}
+.ex-hd{display:flex;align-items:center;gap:8px;padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--exln)}
+.ex-hd h3{font:800 18px system-ui;margin-right:auto}
 .ex-cat{font-size:13px;font-weight:600;color:var(--exbl);background:#e8edff;border-radius:20px;padding:6px 12px;white-space:nowrap}
 .ex-ib{flex:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--exln);background:none;color:var(--exink);display:grid;place-items:center}
 .ex-ib.g svg{fill:currentColor;stroke:none;width:20px;height:20px}
-.ex-q{white-space:pre-line;font-size:16.5px;line-height:1.5;margin-bottom:16px}
+.ex-q{white-space:pre-line;font-size:var(--exfs);line-height:1.45;margin-bottom:12px}
 .ex-img{display:block;width:100%;max-width:420px;margin:0 auto 16px;background:#fff;border-radius:10px;padding:4px}
-.eo{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:none;color:var(--exink);border:1.5px solid var(--exln);border-radius:12px;padding:15px 16px;margin-bottom:12px;font-size:16.5px}
-.eo i{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--exmu)}
+.eo{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:none;color:var(--exink);border:1.5px solid var(--exln);border-radius:12px;padding:10px 14px;margin-bottom:8px;font-size:var(--exfs);line-height:1.35}
+.eo i{flex:none;width:20px;height:20px;border-radius:50%;border:2px solid var(--exmu)}
 .eo b{margin-right:2px}
-.eo.sel{border-color:var(--exbl);background:var(--exsel)}.eo.sel i{border:7px solid var(--exbl)}
+.eo.sel{border-color:var(--exbl);background:var(--exsel)}.eo.sel i{border:6px solid var(--exbl)}
+.ex-fs{position:fixed;top:8px;right:8px;z-index:120;display:flex;background:var(--expn);border:1px solid var(--exln);border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.ex-fs button{width:34px;height:30px;background:none;color:var(--exink);font-weight:700;font-size:13px}
+.ex-fs button+button{border-left:1px solid var(--exln)}
+.ex-fs button:disabled{opacity:.35}
+body.exam{padding-top:46px}
 .ex-nav{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--expn);border-top:1px solid var(--exln);z-index:100}
 .ex-nav button{flex:1;border-radius:12px;padding:15px;font-weight:700;font-size:16px;background:linear-gradient(90deg,var(--exbl2),#3a9bf7);color:#fff}
 .ex-nav button.alt{background:#1d4fbf;color:#fff}
@@ -228,7 +234,7 @@ function setBack(fn){
 }
 function setTab(n){document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===n))}
 function screen(back,tab){
-  clearInterval(timer);app.innerHTML='';document.querySelectorAll('.sheet').forEach(e=>e.remove());document.body.classList.remove('exam');setBack(back);
+  clearInterval(timer);app.innerHTML='';document.querySelectorAll('.sheet,.ex-fs').forEach(e=>e.remove());document.body.classList.remove('exam');setBack(back);
   tabbar.hidden=false;setTab(tab||'home');window.scrollTo(0,0);
   if(back)app.append(h('button','back','‹ Orqaga',back));
 }
@@ -318,11 +324,21 @@ function examStart(k,t){
   EX={k,t,qs:t.questions,i:0,ans:{},start:Date.now(),end:Date.now()+(t.min||120)*6e4};
   exQ();
 }
-function exClose(){document.body.classList.remove('exam');document.querySelectorAll('.sheet').forEach(e=>e.remove())}
+function exClose(){document.body.classList.remove('exam');document.querySelectorAll('.ex-fs').forEach(e=>e.remove());document.querySelectorAll('.sheet').forEach(e=>e.remove())}
 function exExit(){if(confirm('Testdan chiqasizmi? Natija saqlanmaydi.')){const k=EX.k;EX=null;exClose();topicsScreen(k,null)}}
 function exGo(i){EX.i=i;exQ()}
+const EXFS=[12,13,14.5,16,17.5,19,21];
+function exFs(){const v=L('exfs');return v!=null&&v!==''&&EXFS[+v]!=null?+v:2}
+function exFsSet(i){L('exfs',i);document.body.style.setProperty('--exfs',EXFS[i]+'px');exFsBar()}
+function exFsBar(){
+  let b=document.querySelector('.ex-fs');if(!b){b=h('div','ex-fs');document.body.append(b)}
+  const i=exFs();b.innerHTML='';
+  const m=h('button',null,'A−',()=>exFsSet(i-1)),p=h('button',null,'A+',()=>exFsSet(i+1));
+  m.title='Shriftni kichraytirish';p.title='Shriftni kattalashtirish';m.setAttribute('aria-label',m.title);p.setAttribute('aria-label',p.title);
+  m.disabled=i<=0;p.disabled=i>=EXFS.length-1;b.append(m,p);
+}
 function exQ(){
-  screen(null);setBack(exExit);tabbar.hidden=true;document.body.classList.add('exam');
+  screen(null);setBack(exExit);tabbar.hidden=true;document.body.classList.add('exam');document.body.style.setProperty('--exfs',EXFS[exFs()]+'px');exFsBar();
   const n=EX.qs.length,q=EX.qs[EX.i],done=Object.keys(EX.ans).length;
   const top=h('div','ex-top'),bk=h('button','ex-back',null,exExit);bk.innerHTML=EXI.back;bk.setAttribute('aria-label','Chiqish');
   const tm=h('div','ex-tm'),hb=h('div'),mb=h('div');
