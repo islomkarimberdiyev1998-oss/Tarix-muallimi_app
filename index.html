@@ -626,7 +626,7 @@ const APH=[
 "Bugungi mehnat — ertangi g‘alaba.",
 "O‘qish aql uchun xuddi sport tana uchun kabi mashqdir.",
 "Bilganing — o‘zingniki, o‘rgatganing — hammaniki."];
-function myPoints(){let s=0;try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k.indexOf('tm_')===0)s+=+localStorage.getItem(k)||0}}catch(e){}return s}
+function myPoints(){let s=0;try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k.indexOf('tm_')===0)s+=+localStorage.getItem(k)||0}}catch(e){}return Math.round(s*10)/10}
 function refCard(){
   const rf=h('div','ref');
   rf.append(h('b',null,'Do‘stlarni taklif qiling'),h('div','mute','Havolangiz orqali do‘stlaringiz ham tarixni o‘rgansin.'));
@@ -780,7 +780,8 @@ function start(k,g,b,t){
   screen(()=>topicsScreen(k,g,b));
   let i=+L('tstep');if(!(i>=0&&i<TSTEPS.length))i=3;
   const box=h('div','tset');
-  box.append(h('h3',null,t.title),h('div','mute','Har bir savolni vaqtga qo‘yib ishlaysizmi? Soniyani surib tanlang.'));
+  const nq=t.questions.length;
+  box.append(h('h3',null,t.title),h('div','gold sm',`${nq} ta savol · har biri ${String(Math.round(1000/nq)/10).replace('.',',')} ball · jami 100 ball`),h('div','mute','Har bir savolni vaqtga qo‘yib ishlaysizmi? Soniyani surib tanlang.'));
   const val=h('div','val'),rg=document.createElement('input'),tk=h('div','ticks');
   rg.type='range';rg.min=0;rg.max=TSTEPS.length-1;rg.step=1;rg.value=i;rg.setAttribute('aria-label','Har bir savol uchun vaqt');
   const draw=()=>{const v=TSTEPS[+rg.value];val.innerHTML='';val.append(v?String(v):'∞',h('small',null,v?'soniya har bir savolga':'vaqt cheklanmagan'));
@@ -792,7 +793,7 @@ function start(k,g,b,t){
   draw();
 }
 function begin(k,g,b,t,sec){
-  const qs=shuffle(t.questions).slice(0,20).map(q=>({q:q.q,e:q.e,img:q.img,t:q.t,o:shuffle(q.a.map((x,i)=>({x,ok:i===q.c})))}));
+  const qs=shuffle(t.questions).map(q=>({q:q.q,e:q.e,img:q.img,t:q.t,o:shuffle(q.a.map((x,i)=>({x,ok:i===q.c})))}));
   S={k,g,b,t,qs,sec,i:0,pts:0,combo:0,ok:0,hint:true,miss:[]};
   ask();
 }
@@ -824,9 +825,10 @@ function ask(){
 function pick(i){
   if(S.locked)return;S.locked=true;clearInterval(timer);
   const q=S.qs[S.i],right=i>=0&&q.o[i].ok;
-  if(right){S.combo++;S.ok++;S.pts+=10+2*Math.min(S.combo-1,4)}else{S.combo=0;S.miss.push(q)}
+  if(right){S.combo++;S.ok++}else{S.combo=0;S.miss.push(q)}
+  S.pts=Math.round(S.ok/S.qs.length*1000)/10;
   S.btns.forEach((b,k)=>{b.disabled=true;if(q.o[k].ok)b.classList.add('ok');else if(k===i)b.classList.add('no')});
-  S.ptsEl.textContent=`${S.pts} ball`;
+  S.ptsEl.textContent=`${String(S.pts).replace('.',',')} ball`;
   const msg=right?(S.combo>1?`To'g'ri! ${S.combo} ta ketma-ket.`:"To'g'ri!"):(i<0?'Vaqt tugadi.':"Noto'g'ri.");
   S.box.innerHTML='';
   const n=h('div','note');n.append(h('b',null,msg));
@@ -837,10 +839,12 @@ function pick(i){
 function result(){
   const n=S.qs.length,p=S.ok/n,id=S.t.id,prev=+L('tm_'+id)||0;
   if(S.pts>prev)L('tm_'+id,S.pts);
+  const fmt=v=>String(v).replace('.',',');
   screen(()=>topicsScreen(S.k,S.g,S.b));
   const sc=h('div','score');
-  sc.append(h('div','num',`${S.ok}/${n}`),h('div','gold',`${S.pts} ball`),
-    h('div','mute',S.pts>prev&&prev?"Yangi rekord!":`Eng yaxshi natija: ${Math.max(prev,S.pts)} ball`),
+  sc.append(h('div','num',`${S.ok}/${n}`),h('div','gold',`${fmt(S.pts)} ball · 100 ballik tizim`),
+    h('div','mute',`Har bir to‘g‘ri javob: ${fmt(Math.round(1000/n)/10)} ball`),
+    h('div','mute',S.pts>prev&&prev?"Yangi rekord!":`Eng yaxshi natija: ${fmt(Math.max(prev,S.pts))} ball`),
     h('div',null,p>=.8?'Ajoyib natija!':p>=.5?"Yaxshi, yana urinib ko'ring.":"Mavzuni qayta o'qib chiqing."));
   app.append(sc);
   if(S.miss.length){
