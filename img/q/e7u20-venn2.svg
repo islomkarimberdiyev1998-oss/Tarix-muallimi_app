@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 250">
+<rect width="540" height="250" fill="#fff"/>
+<text x="170" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="19" fill="#111">Muhammad Xorazmshoh</text>
+<text x="370" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="19" fill="#111">Jaloliddin Manguberdi</text>
+<clipPath id="c"><ellipse cx="200" cy="148" rx="150" ry="85"/></clipPath>
+<ellipse cx="340" cy="148" rx="150" ry="85" fill="#d9d9d9" clip-path="url(#c)"/>
+<g fill="none" stroke="#111" stroke-width="4"><ellipse cx="200" cy="148" rx="150" ry="85"/><ellipse cx="340" cy="148" rx="150" ry="85"/></g>
+<g font-family="Georgia,serif" font-size="34" text-anchor="middle" fill="#111"><text x="125" y="160">I</text><text x="270" y="160">III</text><text x="415" y="160">II</text></g>
+</svg>
