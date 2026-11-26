@@ -237,6 +237,9 @@ box-shadow:inset 0 0 0 5px #fffaf0,inset 0 0 0 7px #c9a24a,inset 0 0 0 9px #fffa
 .wr .yes{color:var(--tq);font-weight:700}
 .wt{margin-top:6px;background:none;border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:12.5px;color:var(--mute)}
 .wr.ok .wt{border-color:var(--tq);color:var(--tq)}
+.loadmsg{display:flex;flex-direction:column;align-items:center;gap:12px;padding:30vh 0 0}
+.spin{width:36px;height:36px;border:3px solid rgba(128,128,128,.3);border-top-color:#e8b04a;border-radius:50%;animation:sp 0.8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
@@ -282,8 +285,9 @@ function setBack(fn){
   if(tg&&tg.BackButton){if(backFn)tg.BackButton.offClick(backFn);backFn=fn;if(fn){tg.BackButton.onClick(fn);tg.BackButton.show()}else tg.BackButton.hide()}
 }
 function setTab(n){document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===n))}
+let SCRN=0;
 function screen(back,tab){
-  clearInterval(timer);app.innerHTML='';document.querySelectorAll('.sheet,.ex-fs').forEach(e=>e.remove());document.body.classList.remove('exam');setBack(back);
+  SCRN++;clearInterval(timer);app.innerHTML='';document.querySelectorAll('.sheet,.ex-fs').forEach(e=>e.remove());document.body.classList.remove('exam');setBack(back);
   tabbar.hidden=false;setTab(tab||'home');window.scrollTo(0,0);
   if(back)app.append(h('button','back','‹ Orqaga',back));
 }
@@ -859,9 +863,11 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   if(tg&&tg.HapticFeedback)tg.HapticFeedback.selectionChanged();
 }));
 const mg=(a,b)=>{for(const k in b){a[k]=(a[k]&&b[k]&&typeof a[k]=='object'&&typeof b[k]=='object'&&!Array.isArray(b[k]))?mg(a[k],b[k]):b[k]}return a};
-const ld=f=>fetch(f+'?v='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>null);
-Promise.all([ld('questions.json'),ld('questions2.json')]).then(([a,b])=>{if(!a)throw 0;DATA=norm(a);if(b)mg(DATA,norm(b));home();loadMsgs();setInterval(loadMsgs,60000)})
-  .catch(()=>{app.append(h('p',null,"Savollarni yuklab bo'lmadi. questions.json fayli index.html bilan bir joyda ekanini tekshiring."))});
+const ld=f=>fetch(f,{cache:'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>null);
+const ldMsg=h('div','loadmsg');ldMsg.append(h('div','spin'),h('p','mute',"Savollar yuklanmoqda…"));app.append(ldMsg);
+ld('questions.json').then(a=>{if(!a)throw 0;DATA=norm(a);home();loadMsgs();setInterval(loadMsgs,60000);const s=SCRN;
+  ld('questions2.json').then(b=>{if(!b)return;mg(DATA,norm(b));if(SCRN===s)home()})})
+  .catch(()=>{ldMsg.remove();app.append(h('p',null,"Savollarni yuklab bo'lmadi. Internet aloqasini tekshirib, ilovani qayta oching."))});
 </script>
 </body>
 </html>
