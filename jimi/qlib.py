@@ -370,3 +370,27 @@ PLACES.update({'Zomin': (68.4, 39.96)})
 PLACES.update({'Chorjo‘y': (63.58, 39.08), 'Denov': (67.9, 38.27), 'Karki': (65.2, 37.83), 'Baljuvon': (69.68, 38.32), 'Kalif': (65.25, 37.53)})
 REG['buxamir'] = [61, 36.3, 72, 41.2]
 PLACES.update({'Gurlan': (60.39, 41.84), 'Yangi Urganch': (60.63, 41.55)})
+# 9-sinf Jahon tarixi
+PLACES.update({'Gavayi orollari': (-157.0, 20.8), 'Puerto-Riko': (-66.5, 18.2), 'Guam': (144.8, 13.45),
+               'Sedan': (4.94, 49.7), 'Mets': (6.18, 49.12), 'Frankfurt': (8.68, 50.11)})
+PLACES.update({'Togo': (1.0, 8.6), 'Kamerun': (12.5, 5.5), 'Zanzibar': (39.3, -6.1), 'Quvayt': (47.9, 29.3),
+               'Laos': (103.0, 19.5), 'Bosfor': (29.05, 41.1)})
+PLACES.update({'Kipr': (33.2, 35.0), 'Suvaysh kanali': (32.55, 30.6), 'Keniya': (37.9, 0.2), 'Uganda': (32.4, 1.3),
+               'Transvaal': (28.5, -25.0), 'Panama kanali': (-79.7, 9.1), 'Kaliforniya': (-119.5, 37.0), 'Texas': (-99.0, 31.0),
+               'Gavana (Kuba)': (-82.38, 23.13)})
+PLACES.update({'Kolorado': (-105.5, 39.0), 'Mexiko': (-99.13, 19.43)})
+PLACES.update({'Buenos-Ayres': (-58.38, -34.6)})
+PLACES.update({'Rio-de-Janeyro': (-43.2, -22.9), 'Gvatemala': (-90.5, 15.5), 'Port-Artur': (121.25, 38.8), 'Susima': (129.3, 34.4),
+               'Kuril orollari': (150.0, 46.5), 'Kushka': (62.35, 35.28), 'Bosniya': (17.8, 44.2), 'Serbiya': (20.9, 44.0),
+               'Chernogoriya': (19.3, 42.7), 'Ruminiya': (25.0, 45.9), 'Kars': (43.1, 40.6), 'Batumi': (41.64, 41.64),
+               'San-Stefano': (28.82, 40.98), 'Riga': (24.1, 56.95), 'Boku': (49.87, 40.41), 'Peterburg (1905)': (30.3, 59.94)})
+REG['balkan'] = [12, 36, 45, 48]
+PLACES.update({'Praga': (14.42, 50.08), 'Budapesht': (19.04, 47.5), 'Galitsiya': (24.0, 49.6), 'Adua': (38.9, 14.16),
+               'Xorvatiya': (16.0, 45.3), 'Sofiya': (23.32, 42.7), 'Belgrad': (20.46, 44.82), 'Bosniya va Gersegovina': (17.8, 44.0)})
+PLACES.update({'Ryukyu orollari': (127.8, 26.3), 'Sindao': (120.38, 36.07), 'Assam': (92.9, 26.2), 'Simonoseki': (130.94, 33.95)})
+PLACES.update({'Puna': (73.86, 18.52), 'Surat': (72.83, 21.17), 'Gandamak': (70.0, 34.3), 'Izmir': (27.14, 38.42),
+               'Monastir': (21.33, 41.03), 'Saloniki': (22.94, 40.64), 'Adrianopol': (26.56, 41.68)})
+PLACES.update({'Iskandariya': (29.92, 31.2), 'Xartum': (32.53, 15.6), 'Keyptaun': (18.42, -33.92), 'Sarayevo': (18.41, 43.86),
+               'Marna daryosi': (3.6, 48.95), 'Ipr': (2.88, 50.85), 'Somma daryosi': (2.3, 49.9), 'Dardanell': (26.4, 40.2)})
+PLACES.update({'Brest': (23.69, 52.1), 'Kompyen': (2.83, 49.42), 'Sen-Gotard': (8.57, 46.56)})
+OVR.update({('africa', 'Tunis'): (296, 52), ('africa', 'Jazoir'): (230, 105)})
