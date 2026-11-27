@@ -453,3 +453,9 @@ PLACES.update({'Salerno': (14.77, 40.68), 'Kaffa': (35.38, 45.03), 'Trua': (4.07
 PLACES.update({'Kumbi Sale': (-7.97, 15.77), 'Jenne': (-4.55, 13.9), 'Salamanka': (-5.66, 40.96), 'Mayns': (8.27, 50.0), 'Osaka': (135.5, 34.69)})
 PLACES.update({'Urbino': (12.64, 43.73), 'Mantua': (10.79, 45.16), 'Peruja': (12.39, 43.11)})
 PLACES.update({'Marog‘a': (46.24, 37.39)})
+REG['tsent'] = [45, 25, 85, 60]
+REG['wasia'] = [18, 22, 88, 60]
+REG['xorsar'] = [55, 35.5, 67, 43.8]
+PLACES.update({'Saraxs': (61.16, 36.53)})
+REG['tshim'] = [64.5, 39.5, 74.5, 45.0]
+REG['xorazm2'] = [56, 39.3, 64, 46.6]
