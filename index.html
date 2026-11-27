@@ -489,8 +489,10 @@ function exComplain(){
   bx.append(hd,l1,sel,l2,ta,cnt,send);sh.append(bx);
 }
 // ===== Milliy sertifikat: yozma javoblar, baholash, sertifikat =====
-const MS_MAX=75,MS_CLOSED=1.5,MS_PART=1.125;
-const MS_LEVELS=[[70,'A+','Maksimal ball (100%) beriladi'],[65,'A','Maksimal ball (100%) beriladi'],[60,'B+','Maksimal ballga nisbatan proporsional ball'],[55,'B','Maksimal ballga nisbatan proporsional ball'],[50,'C+','Maksimal ballga nisbatan proporsional ball'],[46,'C','Maksimal ballga nisbatan proporsional ball']];
+// Yangi Rash modeli: 55 ta savol (35 ta test + 20 ta yozma qism) bo'yicha to'g'ri javoblar soni = daraja
+const MS_N=55;
+const MS_LEVELS=[[48,'A+'],[44,'A'],[40,'B+'],[36,'B'],[32,'C+'],[28,'C']];
+const msPct=n=>(Math.round(n/MS_N*1000)/10).toFixed(1);
 const MS_MSG={
 'A+':['Qoyil! 🏆','Barakalla! Siz eng yuqori — A+ darajani qo‘lga kiritdingiz. Bilimingiz haqiqiy sertifikat imtihoniga to‘liq tayyor!'],
 'A':['Barakalla! 🌟','A daraja — a’lo natija! Yana ozgina harakat bilan A+ ham sizniki bo‘ladi.'],
@@ -537,10 +539,10 @@ function msResult(R){
     if(q.w)q.w.forEach(p=>{const key=j+p.l,ok=R.ovr[key]!=null?R.ovr[key]:msCheck(p,(ans[j]||{})[p.l]);if(ok)parts++});
     else if(ans[j]===q.c)closed++;else wrong.push(j);
   });
-  const score=Math.round((closed*MS_CLOSED+parts*MS_PART)*10)/10,pct=Math.round(score/MS_MAX*1000)/10,lv=msLevel(score);
-  const prev=+L('tm_'+t.id)||0;if(Math.round(score)>prev)L('tm_'+t.id,Math.round(score));
+  const score=closed+parts,pct=msPct(score),lv=msLevel(score);
+  const prev=+L('tmc_'+t.id)||0;if(score>prev)L('tmc_'+t.id,score);
   if(R.timeout){const nt=h('div','note');nt.append(h('b',null,'Vaqt tugadi. Test avtomatik yakunlandi.'));app.append(nt)}
-  const msg=lv?MS_MSG[lv[1]]:['Ruhingizni tushirmang! 🌱',`Bu safar sertifikat darajasiga ${Math.round((46-score)*10)/10} ball yetmadi. Har bir urinish sizni maqsadga yaqinlashtiradi — xatolar tahlilini o‘qib, yana bir bor sinab ko‘ring. Siz albatta uddalaysiz!`];
+  const msg=lv?MS_MSG[lv[1]]:['Ruhingizni tushirmang! 🌱',`Bu safar sertifikat darajasiga ${28-score} ta to‘g‘ri javob yetmadi. Har bir urinish sizni maqsadga yaqinlashtiradi — xatolar tahlilini o‘qib, yana bir bor sinab ko‘ring. Siz albatta uddalaysiz!`];
   const hero=h('div','ms-hero'+(lv?'':' low'));hero.append(h('div','ms-h1',msg[0]),h('div','ms-h2',msg[1]));app.append(hero);
   // ism
   const u=meUser(),def=u?[u.last_name,u.first_name].filter(Boolean).join(' '):'';
@@ -555,16 +557,18 @@ function msResult(R){
   const rows=h('div','cert-rows'),nameEl=h('b',null,nm||'—');
   const row=(k,v)=>{const r=h('div','cr');r.append(h('span',null,k),typeof v==='string'?h('b',null,v):v);rows.append(r)};
   row('Sertifikat raqami:',no);row('F.I.Sh:',nameEl);row('Umumta’lim fani:','Tarix');row('Variant:',t.title);
-  row('Umumiy to‘plagan bali:',`${score} / ${MS_MAX}`);row('Umumiy ballga nisbatan foiz:',`${pct}%`);row('Sertifikat darajasi:',lv?lv[1]:'Daraja berilmadi');
+  row('To‘g‘ri javoblar soni:',`${score} / ${MS_N}`);row('Foizi:',`${pct}%`);row('Sertifikat darajasi:',lv?lv[1]:'Daraja berilmadi');
   row('Test sinovi natijasi:',`Test: ${closed}/35 · Yozma: ${parts}/20`);
-  const ft=h('div','cert-ft');ft.append(h('span',null,`Berilgan sanasi: ${ds}`),h('span',null,lv?lv[2]:'Keyingi urinishda omad!'));
+  const ft=h('div','cert-ft');ft.append(h('span',null,`Berilgan sanasi: ${ds}`),h('span',null,lv?`Rash modeli · ${score} / ${MS_N} ta to‘g‘ri javob`:'Keyingi urinishda omad!'));
   cert.append(top,ttl,med,rows,ft,h('div','cert-note','Mashq testi natijasi · rasmiy hujjat emas'));
   ni.oninput=()=>{L('ms_name',ni.value);nameEl.textContent=ni.value||'—'};
   app.append(nl,ni,cert);
   // daraja jadvali
   const tb=h('div','card ms-tb');tb.append(h('b',null,'Rash modeli bo‘yicha darajalar'));
-  MS_LEVELS.forEach((l,i)=>{const r=h('div','row2'+(lv&&lv[1]===l[1]?' on':''));r.append(h('span',null,`${l[1]} — ${i?`${l[0]} – ${String(MS_LEVELS[i-1][0]-0.1).replace('.',',')}`:`${l[0]}+`} ball`),h('span','mute',i<2?'Maksimal (100%)':'Proporsional'));tb.append(r)});
-  tb.append(h('div','mute sm','Ballar taxminiy: test savoli 1,5 ball, yozma javobning har bir qismi 1,125 ball (jami 75).'));
+  MS_LEVELS.forEach((l,i)=>{const hi=i?MS_LEVELS[i-1][0]-1:MS_N,r=h('div','row2'+(lv&&lv[1]===l[1]?' on':''));
+    r.append(h('span',null,`${l[1]} — ${l[0]}–${hi} ta to‘g‘ri javob`),h('span','mute',`${msPct(l[0])}–${msPct(hi)}%`));tb.append(r)});
+  {const r=h('div','row2'+(lv?'':' on'));r.append(h('span',null,'Darajasiz — 28 tadan kam'),h('span','mute','50% dan past'));tb.append(r)}
+  tb.append(h('div','mute sm','55 ta savol = 100% (35 ta test savoli va yozma savollarning 20 ta qismi). Foizlar 1 xonagacha yaxlitlangan.'));
   app.append(tb);
   // yozma javoblar
   app.append(h('h2',null,'Yozma javoblar'));
@@ -869,9 +873,9 @@ function topicsScreen(k,g,b){
   const cards=sd(k).cards;
   if(!g&&Array.isArray(cards)&&cards.length){const ci=h('button','item',null,()=>cardsScreen(k));ci.append(h('span',null,'📖 O‘rganish kartalari'),h('span','gold',`${cards.length} ta`));l.append(ci)}
   list.forEach(t=>{
-    const n=t.questions.length,fp=t.exam?null:getPts(t.id),bs=t.exam?(+L('tm_'+t.id)||0):(fp||0);
+    const n=t.questions.length,fp=t.exam?null:getPts(t.id),bs=t.exam?(+L((t.ms?'tmc_':'tm_')+t.id)||0):(fp||0);
     const i=h('button','item'+(n?'':' soon'),null,()=>n?(t.exam?examStart(k,t):start(k,g,b,t)):toast('Savollar tez orada'));
-    i.append(h('span',null,t.title),h('span',n?'gold':'mute',n?(t.exam?`${n} ta savol · ${t.min||120} daq`+(bs?` · ${bs} ball`:''):`${n} ta test`+(fp!=null?` · ✓ ${String(fp).replace('.',',')}/${PT_MAX}`:'')):'tez kunda'));l.append(i);
+    i.append(h('span',null,t.title),h('span',n?'gold':'mute',n?(t.exam?`${n} ta savol · ${t.min||120} daq`+(bs?(t.ms?` · ${bs}/${MS_N}`:` · ${bs} ball`):''):`${n} ta test`+(fp!=null?` · ✓ ${String(fp).replace('.',',')}/${PT_MAX}`:'')):'tez kunda'));l.append(i);
   });
   app.append(l);
   if(!list.length)app.append(h('div','mute','Mavzular tez orada qo‘shiladi.'));
