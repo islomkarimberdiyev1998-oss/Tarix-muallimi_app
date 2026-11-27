@@ -355,3 +355,18 @@ PLACES.update({'Iroq': (43.7, 33.2)})
 REG['nearest'] = [25, 24, 76, 44]
 PLACES.update({'Nikaragua': (-85.0, 12.9), 'Gavana': (-82.38, 23.13)})
 PLACES.update({'Nigeriya': (8.0, 9.5), 'Kongo': (23.0, -2.5), 'Janubiy Afrika Respublikasi': (25.0, -29.0), 'Manchester': (-2.24, 53.48)})
+# 9-sinf O‘zbekiston tarixi
+PLACES.update({'Rishton': (71.28, 40.36), 'Shahrixon': (72.06, 40.71)})
+PLACES.update({'Verniy (Almati)': (76.95, 43.25), 'Ashxobod': (58.38, 37.95), 'Petro-Aleksandrovsk (To‘rtko‘l)': (61.0, 41.55),
+               'Jizzax': (67.84, 40.12), 'Erjar': (68.75, 40.55), 'Kattaqo‘rg‘on': (66.26, 39.9), 'Zirabuloq': (66.0, 39.98),
+               'Mahram': (69.2, 40.4), 'Dushanbe': (68.78, 38.56), 'Krasnovodsk': (52.97, 40.02), 'Panjikent': (67.6, 39.5),
+               'Uchqo‘rg‘on': (72.08, 41.11)})
+REG['ca2'] = [52, 35.5, 80, 46]
+PLACES.update({'Mang‘it': (60.06, 42.12), 'Mang‘ishloq': (51.5, 44.2)})
+REG['zarafshon'] = [64, 38.5, 68.5, 40.6]
+PLACES.update({'Go‘ktepa': (57.97, 38.16)})
+PLACES.update({'Qizilarvat': (56.27, 39.0), 'Mingtepa': (72.33, 40.5)})
+PLACES.update({'Zomin': (68.4, 39.96)})
+PLACES.update({'Chorjo‘y': (63.58, 39.08), 'Denov': (67.9, 38.27), 'Karki': (65.2, 37.83), 'Baljuvon': (69.68, 38.32), 'Kalif': (65.25, 37.53)})
+REG['buxamir'] = [61, 36.3, 72, 41.2]
+PLACES.update({'Gurlan': (60.39, 41.84), 'Yangi Urganch': (60.63, 41.55)})
