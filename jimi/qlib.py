@@ -404,3 +404,12 @@ PLACES.update({'Leningrad': (30.32, 59.94)})
 PLACES.update({'Beynov': (55.2, 45.32), 'Navoiy': (65.38, 40.1), 'Chirchiq': (69.58, 41.47)})
 PLACES.update({'Gazli': (63.45, 40.13), 'Muborak': (65.15, 39.26), 'Uchquduq': (63.55, 42.15)})
 PLACES.update({'Quvasoy': (71.98, 40.3)})
+# Yangi darslik 10-sinf Jahon tarixi
+PLACES.update({'Bryussel': (4.35, 50.85), 'Liverpul': (-2.98, 53.41), 'Nant': (-1.55, 47.22), 'Bristol': (-2.59, 51.45)})
+PLACES.update({'Liviya (Afrika)': (17.5, 27.0)})
+PLACES.update({'Ukraina': (31.5, 49.2), 'Litva': (24.0, 55.3)})
+REG['swasia'] = [30, 19, 60, 39]
+PLACES.update({'Iordaniya': (36.6, 31.0), 'Livan': (35.9, 33.9), 'BAA': (54.3, 23.9), 'Saudiya Arabistoni': (45.0, 24.0), 'Bayrut': (35.5, 33.9)})
+PLACES.update({'Gana (Oltin Qirg‘oq)': (-1.2, 7.9)})
+REG.update({'europeN': [-11, 34, 42, 64.5], 'amerpac': [-178, -5, 150, 72]})
+PLACES.update({'Janubiy Manchjuriya': (123.5, 42.3)})
