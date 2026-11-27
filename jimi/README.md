@@ -19,8 +19,9 @@ to'liq qo'llanadi.
 | Tur | Metod | Soni | Izoh |
 |---|---|---|---|
 | Oddiy savol | `B` | 12–18 | sana, shaxs, joy, atama, sabab |
-| Voqea natijasi | `NAT` | 2–3 | "Voqea → natijasi nima bo'ldi?" |
+| Voqea natijasi | `NAT` | 2–4 | "Voqea → natijasi nima bo'ldi?" |
 | To'g'ri / noto'g'ri | `TF` | 2 | biri to'g'ri, biri noto'g'ri |
+| 4 ta hukm (T/N) | `TF4` | 1 | bitta testda 4 ta voqea/hukm, har biriga T yoki N; javob «1-T, 2-N, 3-T, 4-N» |
 | I–II–III mulohaza | `MUL` | 1 | 3 ta mulohaza, kamida bittasi noto'g'ri |
 | Xronologiya | `CHR` | 1 | 4–6 voqea (kamida 3), sanalar matnda bo'lishi shart |
 | Eyler–Venn | `VENN` | 1 | 2 tushuncha, 5–6 belgi; I, II, III guruhlarning har biri bo'sh emas |
