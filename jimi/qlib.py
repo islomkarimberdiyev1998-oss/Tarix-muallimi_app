@@ -394,3 +394,13 @@ PLACES.update({'Iskandariya': (29.92, 31.2), 'Xartum': (32.53, 15.6), 'Keyptaun'
                'Marna daryosi': (3.6, 48.95), 'Ipr': (2.88, 50.85), 'Somma daryosi': (2.3, 49.9), 'Dardanell': (26.4, 40.2)})
 PLACES.update({'Brest': (23.69, 52.1), 'Kompyen': (2.83, 49.42), 'Sen-Gotard': (8.57, 46.56)})
 OVR.update({('africa', 'Tunis'): (296, 52), ('africa', 'Jazoir'): (230, 105)})
+# 10-sinf O‘zbekiston tarixi
+PLACES.update({'Jalolobod': (73.0, 40.93)})
+PLACES.update({'Taxta': (59.85, 41.65), 'Porsu': (59.4, 42.1)})
+PLACES.update({'Vilnyus': (25.28, 54.69), 'Viborg': (28.75, 60.71)})
+PLACES.update({'Bekobod': (69.23, 40.22), 'Gdansk': (18.65, 54.35), 'Gomel': (31.0, 52.43), 'Yelna': (33.18, 54.58), 'Kursk': (36.19, 51.73)})
+PLACES.update({'Guliston': (68.78, 40.49)})
+PLACES.update({'Leningrad': (30.32, 59.94)})
+PLACES.update({'Beynov': (55.2, 45.32), 'Navoiy': (65.38, 40.1), 'Chirchiq': (69.58, 41.47)})
+PLACES.update({'Gazli': (63.45, 40.13), 'Muborak': (65.15, 39.26), 'Uchquduq': (63.55, 42.15)})
+PLACES.update({'Quvasoy': (71.98, 40.3)})
