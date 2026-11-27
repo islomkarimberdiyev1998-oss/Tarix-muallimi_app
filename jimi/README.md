@@ -11,7 +11,7 @@ to'liq qo'llanadi.
    yoki MAPN turida tuziladi.
 2. **Har bir mavzu alohida test.** Mavzu id: `e{sinf}{j|u}{raqam}` (masalan `e10j5`,
    `e8u12`); birlashtirilgan mavzular `e10j7-8`.
-3. **100 ballik tizim.** Ball ilovada avtomatik hisoblanadi (to'g'ri javoblar ulushi × 100).
+3. **50 ballik tizim.** Har bir test ko‘pi bilan 50 ball; reytingga faqat birinchi urinish yoziladi (keyingilari – mustahkamlash). Ball 20 ta ligaga olib chiqadi (`LG` – index.html).
 4. **To'g'ri javob har doim birinchi yoziladi** (`c: 0`), ilova variantlarni o'zi aralashtiradi.
 5. **Izoh (`e`)** — to'g'ri javobni matndan qisqa asoslaydi.
 
