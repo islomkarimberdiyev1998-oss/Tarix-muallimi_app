@@ -437,3 +437,19 @@ PLACES.update({'Rajputana': (73.5, 26.5)})
 REG['korea'] = [123, 33, 132, 43]
 PLACES.update({'Kyondju': (129.2, 35.85), 'Xokkaydo': (142.8, 43.4)})
 REG['asiaE'] = [60, 5, 145, 50]
+# Yangi darslik 8-sinf Jahon tarixi
+PLACES.update({'Bordo': (-0.58, 44.84), 'Domremi': (5.68, 48.44), 'Kompen': (2.83, 49.42), 'Navarra': (-1.65, 42.8), 'Burj': (2.4, 47.08)})
+PLACES.update({'Esseks': (0.55, 51.78), 'Augsburg': (10.9, 48.37), 'Neapol (universitet)': (14.25, 40.85)})
+REG['iberia'] = [-10.5, 35.5, 4.5, 44.5]
+PLACES.update({'Toledo': (-4.02, 39.86), 'Pamplona': (-1.64, 42.81), 'Piza': (10.4, 43.72), 'Kadis': (-6.29, 36.53)})
+PLACES.update({'Kosovo': (21.1, 42.65), 'Konstansa': (9.17, 47.66), 'Krakov': (19.94, 50.06), 'Smolensk': (32.05, 54.78)})
+PLACES.update({'Sabzavor': (57.68, 36.21), 'Eskishahar': (30.52, 39.78)})
+REG['goldh'] = [28, 40, 68, 58]
+REG['japko'] = [123, 30, 142, 41]
+PLACES.update({'Xakata': (130.4, 33.6)})
+REG['amer'] = [-128, -25, -55, 52]
+PLACES.update({'Buyuk Zimbabve': (30.93, -20.27), 'Mayyapan': (-89.45, 20.63), 'Buyuk ko‘llar': (-84.0, 45.0)})
+PLACES.update({'Salerno': (14.77, 40.68), 'Kaffa': (35.38, 45.03), 'Trua': (4.07, 48.30)})
+PLACES.update({'Kumbi Sale': (-7.97, 15.77), 'Jenne': (-4.55, 13.9), 'Salamanka': (-5.66, 40.96), 'Mayns': (8.27, 50.0), 'Osaka': (135.5, 34.69)})
+PLACES.update({'Urbino': (12.64, 43.73), 'Mantua': (10.79, 45.16), 'Peruja': (12.39, 43.11)})
+PLACES.update({'Marog‘a': (46.24, 37.39)})
