@@ -413,3 +413,27 @@ PLACES.update({'Iordaniya': (36.6, 31.0), 'Livan': (35.9, 33.9), 'BAA': (54.3, 2
 PLACES.update({'Gana (Oltin Qirg‘oq)': (-1.2, 7.9)})
 REG.update({'europeN': [-11, 34, 42, 64.5], 'amerpac': [-178, -5, 150, 72]})
 PLACES.update({'Janubiy Manchjuriya': (123.5, 42.3)})
+
+# ---------- 4 ta hukm: to‘g‘ri / noto‘g‘ri (bitta testda) ----------
+def TF4(self, items, e):
+    """items – 4 ta (hukm, True/False). Javob: «1-T, 2-N, 3-T, 4-N» ko‘rinishida."""
+    assert len(items) == 4 and any(v for _, v in items) and not all(v for _, v in items)
+    f = lambda bits: ', '.join(f'{i+1}-{"T" if b else "N"}' for i, b in enumerate(bits))
+    cor = tuple(v for _, v in items)
+    others = [b for b in itertools.product([True, False], repeat=4) if b != cor]
+    opts = [f(cor)] + [f(b) for b in self.R.sample(others, 3)]
+    q = ('Hukmlarga baho bering: to‘g‘ri (T) yoki noto‘g‘ri (N).\n'
+         + '\n'.join(f'{i+1}) {t}' for i, (t, _) in enumerate(items)))
+    self.Q.append({'q': q, 'a': opts, 'c': 0, 'e': e, 't': 45})
+
+Topic.TF4 = TF4
+# Yangi darslik 7-sinf Jahon tarixi
+PLACES.update({'Suasson': (3.32, 49.38)})
+REG['britain'] = [-11, 48, 13, 60]
+PLACES.update({'Uesseks': (-1.9, 51.1)})
+PLACES.update({'Antioxiya': (36.16, 36.2), 'Moraviya': (17.0, 49.2), 'Yaroslavl': (39.87, 57.63)})
+PLACES.update({'Ko‘niya': (32.49, 37.87), 'Ayn-Jalut': (35.4, 32.55), 'Jand': (64.6, 44.6)})
+PLACES.update({'Rajputana': (73.5, 26.5)})
+REG['korea'] = [123, 33, 132, 43]
+PLACES.update({'Kyondju': (129.2, 35.85), 'Xokkaydo': (142.8, 43.4)})
+REG['asiaE'] = [60, 5, 145, 50]
