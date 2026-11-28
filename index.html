@@ -262,6 +262,15 @@ box-shadow:inset 0 0 0 5px #fffaf0,inset 0 0 0 7px #c9a24a,inset 0 0 0 9px #fffa
 .loadmsg{display:flex;flex-direction:column;align-items:center;gap:12px;padding:30vh 0 0}
 .spin{width:36px;height:36px;border:3px solid rgba(128,128,128,.3);border-top-color:#e8b04a;border-radius:50%;animation:sp 0.8s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
+.urow{display:flex;align-items:center;gap:10px;padding:8px 6px;border-top:1px solid var(--line);width:100%;text-align:left;background:none}
+.urow .rk{flex:none;width:26px;color:var(--mute);font-weight:700;font-size:14px}
+.urow .avatar{width:34px;height:34px;font-size:15px}
+.urow .em{flex:none;width:24px;height:24px}.urow .em svg{width:100%;height:100%;display:block}
+.urow .nm{flex:1;min-width:0}.urow .nm b,.urow .nm div{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.urow.me{background:color-mix(in srgb,var(--gold) 14%,transparent);border-radius:8px}
+.fld{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+textarea.fld{min-height:110px;resize:vertical}
+.att{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
 </style>
 </head>
 <body>
@@ -277,6 +286,10 @@ const tg=window.Telegram&&Telegram.WebApp;
 if(tg){tg.ready();tg.expand()}
 // DIQQAT: o'z botingiz havolasini shu yerga yozing (referal havola uchun)
 const BOT_LINK='https://t.me/Tarixustoz_bot';
+// Natijalar serveri (bot/server.py) manzili, masalan 'https://api.sizning-domen.uz'.
+// DIQQAT: shu manzilni yuqoridagi Content-Security-Policy dagi connect-src ga ham qo'shing.
+// Bo'sh qoldirilsa natijalar faqat telefonda saqlanadi, umumiy reyting ko'rinmaydi.
+const API_URL='';
 const app=document.getElementById('app'),tabbar=document.getElementById('tabbar');
 let DATA=null,S={},timer=null,backFn=null;
 const L=(k,v)=>{try{return v===undefined?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){return null}};
@@ -296,6 +309,113 @@ function shareRef(){
   if(noBot()){toast('Bot havolasi kiritilmagan');return}
   const l='https://t.me/share/url?url='+encodeURIComponent(refLink())+'&text='+encodeURIComponent('Tarix muallim — tarixdan testlar. Men bilan birga o‘rgan!');
   if(tg&&tg.openTelegramLink)tg.openTelegramLink(l);else window.open(l,'_blank');
+}
+// ===== Natijalar serveri bilan aloqa =====
+let AMI=false; // joriy foydalanuvchi adminmi (server aytadi)
+const apiOn=()=>!!(API_URL&&tg&&tg.initData);
+function api(p,body){
+  if(!apiOn())return Promise.reject(0);
+  const hd={'Authorization':'tma '+tg.initData};if(body)hd['Content-Type']='application/json';
+  return fetch(API_URL.replace(/\/$/,'')+p,{method:body?'POST':'GET',headers:hd,body:body?JSON.stringify(body):undefined,cache:'no-store'})
+    .then(r=>{if(!r.ok)throw r.status;return r.json()});
+}
+const SEC_N={eski:'Eski darslik',yangi:'Yangi darslik',metodik:'Metodik'},BOOK_N={jahon:'Jahon tarixi',uz:'O‘zbekiston tarixi'};
+function topicLabels(){
+  const m={},S2=(DATA&&DATA.sections)||{};
+  Object.keys(S2).forEach(k=>{const x=S2[k],pre=SEC_N[k]||k,f=p=>t=>{m[t.id]=p+' · '+t.title};
+    if(x.grades)Object.keys(x.grades).forEach(g=>{const G=x.grades[g],pg=pre+' · '+g+'-sinf';(G.topics||[]).forEach(f(pg));
+      Object.keys(G.books||{}).forEach(b=>(G.books[b].topics||[]).forEach(f(pg+' · '+(BOOK_N[b]||b))))});
+    (x.topics||[]).forEach(f(pre))});
+  return m;
+}
+function syncPts(){
+  if(!apiOn())return Promise.resolve();
+  const lb=topicLabels(),it=[];eachLeagueTopic(t=>{const v=getPts(t.id);if(v!=null)it.push([t.id,lb[t.id]||t.title,v])});
+  return api('/api/sync',{items:it}).then(d=>{AMI=!!(d&&d.admin)}).catch(()=>{});
+}
+function openUser(u){
+  if(u.username){const l='https://t.me/'+u.username;if(tg&&tg.openTelegramLink)tg.openTelegramLink(l);else window.open(l,'_blank')}
+  else toast('Bu ishtirokchining Telegram username’i yo‘q');
+}
+function uAvatar(u){
+  const av=h('span','avatar'),ini=()=>{av.textContent=(Array.from(u.name||'?')[0]||'?').toUpperCase()};
+  if(safeUrl(u.photo)){const im=document.createElement('img');im.alt='';im.src=safeUrl(u.photo);im.onerror=()=>{im.remove();ini()};av.append(im)}else ini();
+  return av;
+}
+const fmtP=v=>String(v).replace('.',',');
+const fmtD=s=>{if(!s)return '—';const d=new Date(s*1000),z=n=>String(n).padStart(2,'0');return `${z(d.getDate())}.${z(d.getMonth()+1)}.${d.getFullYear()} ${z(d.getHours())}:${z(d.getMinutes())}`};
+function topCard(){
+  const c=h('div','card');c.append(h('b',null,'Umumiy reyting'));
+  if(!apiOn()){c.append(h('div','mute sm','Umumiy reyting Telegram ichida ochilganda ko‘rinadi.'));return c}
+  const st=h('div','mute sm','Yuklanmoqda…');c.append(st);
+  api('/api/top').then(d=>{
+    st.textContent=d.me?`Sizning o‘rningiz: ${d.me.rank} / ${d.count} · ${fmtP(d.me.pts)} ball`:`Ishtirokchilar: ${d.count}`;
+    if(!d.top.length)c.append(h('div','mute sm','Hali natijalar yo‘q.'));
+    d.top.forEach((u,i)=>{
+      const r=h('button','urow'+(u.me?' me':''),null,()=>openUser(u));
+      const nm=h('span','nm');nm.append(h('b',null,u.name),h('div','mute sm',(u.username?'@'+u.username+' · ':'')+u.topics+' ta mavzu'));
+      const li=lgIdx(u.pts);r.append(h('span','rk',String(i+1)),uAvatar(u),nm);if(li>=0)r.append(em(li));r.append(h('span','gold',fmtP(u.pts)));
+      c.append(r);
+    });
+    c.append(h('div','mute sm','Ishtirokchi ustiga bossangiz, Telegram’da u bilan yozishma ochiladi.'));
+  }).catch(()=>{st.textContent='Umumiy reytingni yuklab bo‘lmadi. Internetni tekshiring.'});
+  return c;
+}
+function adminScreen(){
+  screen(ratingScreen,'rating');
+  app.append(h('h2',null,'Ishtirokchilar natijalari'));
+  const q=document.createElement('input');q.className='fld';q.placeholder='Ism yoki @username bo‘yicha qidirish';
+  const st=h('div','mute sm','Yuklanmoqda…'),box=h('div','card');app.append(q,st,box);
+  const s=SCRN;
+  api('/api/admin/users').then(d=>{
+    if(s!==SCRN)return;
+    const draw=()=>{
+      const f=q.value.trim().toLowerCase().replace(/^@/,'');box.innerHTML='';
+      const L2=d.users.filter(u=>!f||u.name.toLowerCase().includes(f)||(u.username||'').toLowerCase().includes(f));
+      st.textContent=`Jami: ${d.users.length} ta ishtirokchi`+(f?` · topildi: ${L2.length}`:'');
+      L2.forEach((u,i)=>{
+        const r=h('button','urow',null,()=>adminUser(u.id));
+        const nm=h('span','nm');nm.append(h('b',null,u.name),h('div','mute sm',(u.username?'@'+u.username+' · ':'')+`${u.topics} mavzu · ${u.attempts} urinish · ${fmtD(u.last)}`));
+        r.append(h('span','rk',String(i+1)),uAvatar(u),nm,h('span','gold',fmtP(u.pts)));box.append(r);
+      });
+      if(!L2.length)box.append(h('div','mute sm','Hech kim topilmadi.'));
+    };
+    q.oninput=draw;draw();
+  }).catch(e=>{st.textContent=e===403?'Bu bo‘lim faqat admin uchun.':'Ma’lumotni yuklab bo‘lmadi.'});
+}
+function adminUser(id){
+  screen(adminScreen,'rating');
+  const st=h('div','mute','Yuklanmoqda…');app.append(st);
+  const s=SCRN;
+  api('/api/admin/user?id='+encodeURIComponent(id)).then(d=>{
+    if(s!==SCRN)return;st.remove();
+    const u=d.user,tot=Math.round(d.points.reduce((a,p)=>a+p.pts,0)*10)/10,li=lgIdx(tot);
+    const c=h('div','card');c.style.textAlign='center';
+    const av=uAvatar(u);av.style.cssText='width:72px;height:72px;font-size:30px;margin:0 auto 8px';
+    c.append(av,h('b',null,u.name));
+    if(u.username)c.append(h('div','mute','@'+u.username));
+    c.append(h('div','gold',`${fmtP(tot)} ball · ${li<0?'liga yo‘q':lgName(li)}`),
+      h('div','mute sm',`ID: ${u.id} · birinchi kirish: ${fmtD(u.first_seen)} · oxirgi: ${fmtD(u.last_seen)}`));
+    app.append(c);
+    if(u.username)app.append(h('button','btn alt','Telegram’da yozishmani ochish',()=>openUser(u)));
+    const m=h('div','card');m.style.marginTop='12px';
+    const ta=document.createElement('textarea');ta.className='fld';ta.maxLength=3500;ta.placeholder='Xabar matni (bot nomidan yuboriladi)';
+    const sb=h('button','btn','Bot orqali yuborish',()=>{
+      const t=ta.value.trim();if(!t)return toast('Xabar matnini yozing');sb.disabled=true;
+      api('/api/admin/msg',{id:u.id,text:t}).then(r=>{sb.disabled=false;if(r.ok){ta.value='';toast('Xabar yuborildi')}else{const e=r.error||'';toast('Yuborilmadi: '+(/blocked/i.test(e)?'ishtirokchi botni bloklagan':/chat not found|initiate|forbidden/i.test(e)?'ishtirokchi botga hali ruxsat bermagan':'Telegram bilan aloqa xatosi'))}})
+        .catch(()=>{sb.disabled=false;toast('Yuborib bo‘lmadi')});
+    });
+    m.append(h('b',null,'Xabar yozish'),h('div','mute sm','Ishtirokchi botga ruxsat bergan bo‘lsa, xabar unga bot orqali yetib boradi.'),ta,sb);
+    app.append(m);
+    const a=h('div','card');a.append(h('b',null,`Urinishlar · ${d.attempts.length}`));
+    if(!d.attempts.length)a.append(h('div','mute sm','Hali urinish yo‘q (faqat oldingi ballar sinxronlangan).'));
+    d.attempts.forEach(x=>{const r=h('div','att');
+      r.append(h('span',null,x.title||x.topic),h('span','gold',`${x.ok}/${x.n}`),
+        h('span','mute sm',fmtD(x.at)+(x.first?' · birinchi urinish':' · mashq')),h('span','mute sm',fmtP(x.pts)+' ball'));a.append(r)});
+    const p=h('div','card');p.append(h('b',null,`Reytingdagi ballar · ${d.points.length} mavzu`));
+    d.points.forEach(x=>{const r=h('div','row2');r.append(h('span',null,x.title||x.topic),h('span','gold',fmtP(x.pts)));p.append(r)});
+    app.append(a,p);
+  }).catch(()=>{st.textContent='Ma’lumotni yuklab bo‘lmadi.'});
 }
 function copyRef(){
   if(noBot()){toast('Bot havolasi kiritilmagan');return}
@@ -768,7 +888,8 @@ function ratingScreen(){
   const st=h('div','card');st.append(h('b',null,`Natijalarim · ${done} ta mavzu`));
   if(!best.length)st.append(h('div','mute sm','Hali test yechilmagan. Birinchi testni boshlang!'));
   best.slice(0,5).forEach(([t,v])=>{const r=h('div','row2');r.append(h('span',null,t),h('span','gold',String(v).replace('.',',')+' ball'));st.append(r)});
-  app.append(st,leagueList(),h('div','mute sm','Milliy sertifikat va attestatsiya natijalari ligalarga qo‘shilmaydi.'));
+  if(AMI)app.append(h('button','btn','👥 Ishtirokchilar natijalari (admin)',adminScreen));
+  app.append(topCard(),st,leagueList(),h('div','mute sm','Milliy sertifikat va attestatsiya natijalari ligalarga qo‘shilmaydi.'));
 }
 function profileScreen(){
   screen(null,'profile');
@@ -977,6 +1098,10 @@ function pick(i){
 function result(){
   const n=S.qs.length,p=S.ok/n,id=S.t.id;
   if(S.first)setPts(id,S.pts);
+  if(apiOn()){
+    api('/api/result',{id,title:topicLabels()[id]||S.t.title,ok:S.ok,n,pts:S.pts,first:S.first}).catch(()=>{});
+    if(S.first&&tg.requestWriteAccess&&!L('wa_tm')){L('wa_tm','1');try{tg.requestWriteAccess()}catch(e){}} // ustoz bot orqali yoza olishi uchun
+  }
   const fp=getPts(id),lg1=lgIdx(myPoints());
   const fmt=v=>String(v).replace('.',',');
   screen(()=>topicsScreen(S.k,S.g,S.b));
@@ -1003,7 +1128,7 @@ const mg=(a,b)=>{for(const k in b){if(k==='__proto__'||k==='constructor'||k==='p
 const ld=f=>fetch(f,{cache:'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>null);
 const ldMsg=h('div','loadmsg');ldMsg.append(h('div','spin'),h('p','mute',"Savollar yuklanmoqda…"));app.append(ldMsg);
 ld('questions.json').then(a=>{if(!a)throw 0;DATA=norm(a);home();loadMsgs();setInterval(loadMsgs,60000);const s=SCRN;
-  ld('questions2.json').then(b=>{if(!b)return;mg(DATA,norm(b));migratePts();if(SCRN===s)home()})})
+  ld('questions2.json').then(b=>{if(!b)return;mg(DATA,norm(b));migratePts();if(SCRN===s)home();syncPts()})})
   .catch(()=>{ldMsg.remove();app.append(h('p',null,"Savollarni yuklab bo'lmadi. Internet aloqasini tekshirib, ilovani qayta oching."))});
 </script>
 </body>
