@@ -461,3 +461,5 @@ REG['tshim'] = [64.5, 39.5, 74.5, 45.0]
 REG['xorazm2'] = [56, 39.3, 64, 46.6]
 REG['syr'] = [61, 40, 79, 47.5]
 REG['ww2'] = [5, 43, 50, 62]
+PLACES.update({'Astana': (71.45, 51.17), 'Bishkek': (74.6, 42.87)})
+PLACES.update({'Olmaota': (76.9, 43.25)})
