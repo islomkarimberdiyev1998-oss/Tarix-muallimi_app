@@ -507,6 +507,7 @@ const MS_MSG={
 'C':['Yaxshi boshlanish! 🌱','C daraja — sertifikat darajasiga yetdingiz. Har bir xato — yangi bilim, to‘xtamang!']};
 const exDone=j=>{const a=EX.ans[j];return EX.qs[j].w?!!(a&&Object.values(a).some(v=>v.trim())):a!=null};
 const msNorm=s=>s.toLowerCase().replace(/[‘’'`ʻʼ‛′]/g,'').replace(/[^a-z0-9а-яёўқғҳ]/g,'');
+function wOk(w,v){const x=msNorm(v||'');return !!x&&w.some(o=>{const n=msNorm(o);return x===n||(n.length>=4&&x.includes(n))})}
 function msCheck(p,v){
   const x=msNorm(v||'');if(!x)return false;
   const hits=p.ok.filter(o=>x.includes(msNorm(o))).length;
@@ -917,7 +918,7 @@ function start(k,g,b,t){
   draw();
 }
 function begin(k,g,b,t,sec){
-  const qs=shuffle(t.questions).map(q=>({q:q.q,e:q.e,img:q.img,t:q.t,o:shuffle(q.a.map((x,i)=>({x,ok:i===q.c})))}));
+  const qs=shuffle(t.questions).map(q=>Array.isArray(q.w)?{q:q.q,e:q.e,img:q.img,t:q.t,w:q.w}:({q:q.q,e:q.e,img:q.img,t:q.t,o:(q.fx?(a=>a):shuffle)(q.a.map((x,i)=>({x,ok:i===q.c})))}));
   const first=getPts(t.id)==null,lg0=lgIdx(myPoints());
   S={k,g,b,t,qs,sec,i:0,pts:0,combo:0,ok:0,hint:true,miss:[],first,lg0};
   if(first)setPts(t.id,0); // urinish boshlandi: endi qayta boshlash ballni oshirmaydi
@@ -934,13 +935,21 @@ function ask(){
   const bar=h('div','bar');S.bar=h('i');bar.append(S.bar);if(!T)bar.style.visibility='hidden';
   app.append(top,bar,h('div','q'+(q.q.includes('\n')?' long':''),q.q));
   if(safeImg(q.img)){const im=document.createElement('img');im.className='qimg';im.alt='Rasm';im.src=safeImg(q.img);app.append(im)}
-  S.btns=q.o.map((o,k)=>{const b=h('button','opt',null,()=>pick(k));b.append(h('b',null,'ABCDEF'[k]+') '),o.x);app.append(b);return b});
   S.box=h('div');
+  if(q.w){
+    S.btns=[];let val='';S.wbox=null;
+    const go=h('button','btn','Tekshirish',()=>{if(!val.trim())return toast('Javobni yozing');pick(wOk(q.w,val)?1:0)});
+    const wc=wCells('',v=>{val=v});S.wbox=[go,wc.querySelector('input')];
+    app.append(h('div','mute sm','Javobni yozing (katta-kichik harf va tutuq belgisi farq qilmaydi):'),wc,go);
+    app.append(S.box);
+  }else{
+  S.btns=q.o.map((o,k)=>{const b=h('button','opt',null,()=>pick(k));b.append(h('b',null,'ABCDEF'[k]+') '),o.x);app.append(b);return b});
   const hint=h('button','hint','50/50',()=>{
     if(!S.hint||S.locked)return;S.hint=false;hint.disabled=true;
     shuffle(q.o.map((o,k)=>k).filter(k=>!q.o[k].ok)).slice(0,2).forEach(k=>{S.btns[k].disabled=true;S.btns[k].classList.add('off')});
   });
   hint.disabled=!S.hint||q.o.length<3;S.box.append(hint);app.append(S.box);
+  }
   if(!T)return;
   S.left=T;
   timer=setInterval(()=>{
@@ -950,7 +959,8 @@ function ask(){
 }
 function pick(i){
   if(S.locked)return;S.locked=true;clearInterval(timer);
-  const q=S.qs[S.i],right=i>=0&&q.o[i].ok;
+  const q=S.qs[S.i],right=q.w?i===1:(i>=0&&q.o[i].ok);
+  if(q.w&&S.wbox)S.wbox.forEach(x=>x.disabled=true);
   if(right){S.combo++;S.ok++}else{S.combo=0;S.miss.push(q)}
   S.pts=Math.round(S.ok/S.qs.length*PT_MAX*10)/10;
   if(S.first)setPts(S.t.id,S.pts);
@@ -959,6 +969,7 @@ function pick(i){
   const msg=right?(S.combo>1?`To'g'ri! ${S.combo} ta ketma-ket.`:"To'g'ri!"):(i<0?'Vaqt tugadi.':"Noto'g'ri.");
   S.box.innerHTML='';
   const n=h('div','note');n.append(h('b',null,msg));
+  if(q.w&&!right){const c=h('div','mute');c.append("To'g'ri javob: ",h('b',null,q.w[0]));n.append(c)}
   if(q.e){n.append(h('div','mute',q.e))}
   const last=S.i+1>=S.qs.length;
   S.box.append(n,h('button','btn',last?"Natijani ko'rish":'Keyingi savol',()=>{S.i++;last?result():ask()}));
@@ -979,7 +990,7 @@ function result(){
   app.append(leagueCard(true));
   if(S.miss.length){
     app.append(h('h2',null,'Xatolar tahlili'));
-    S.miss.forEach(q=>{const m=h('div','miss');m.append(h('div','mq',q.q));const c=h('div','mute');c.append("To'g'ri javob: ",h('b',null,q.o.find(o=>o.ok).x));m.append(c);app.append(m)});
+    S.miss.forEach(q=>{const m=h('div','miss');m.append(h('div','mq',q.q));const c=h('div','mute');c.append("To'g'ri javob: ",h('b',null,q.w?q.w[0]:q.o.find(o=>o.ok).x));m.append(c);app.append(m)});
   }
   app.append(h('button','btn','Qayta urinish (mustahkamlash)',()=>start(S.k,S.g,S.b,S.t)),h('button','btn alt','Mavzular',()=>topicsScreen(S.k,S.g,S.b)));
 }
